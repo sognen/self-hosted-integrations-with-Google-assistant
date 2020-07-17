@@ -1,5 +1,6 @@
+﻿
 
-What does it do?
+# What does it do?
 Allows Google Assistant to control Kodi, e.g.,
 
 - Play Animal Planet
@@ -10,13 +11,13 @@ Allows Google Assistant to control Kodi, e.g.,
 - Turn off/on
 
 
-The following commandands are fully or partially supported:
+### The following commandands are fully or partially supported:
 
 - action.devices.commands.appSelect 
 - action.devices.commands.setInput
 - action.devices.commands.OnOff
 - action.devices.commands.mediaClosedCaptioningOff
-- action.devices.commands.mediaClosedCaptioningOn (not currenty working)
+- action.devices.commands.mediaClosedCaptioningOn (not working)
 - action.devices.commands.mediaNext
 - action.devices.commands.mediaPause
 - action.devices.commands.mediaPrevious
@@ -26,7 +27,7 @@ The following commandands are fully or partially supported:
 - action.devices.commands.setVolume
 
 
-Software requirements:
+### Software needed:
 - HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
 - MQTT broker
 - Node-red - https://www.nodered.org
@@ -34,7 +35,7 @@ Software requirements:
 
 
 
-Todo:
+### Todo:
 - Document setup
 - Complete definition of Kodi
 - Complete node-red flows
