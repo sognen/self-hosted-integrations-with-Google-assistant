@@ -2,6 +2,21 @@
 What does it do?
 Allows Google Assistant to control Kodi.
 
+The following commandand traits are fully or partially supported:
+
+- action.devices.commands.appSelect
+- action.devices.commands.setInput
+- action.devices.commands.OnOff
+- action.devices.commands.mediaClosedCaptioningOff
+- action.devices.commands.mediaClosedCaptioningOn
+- action.devices.commands.mediaNext
+- action.devices.commands.mediaPause
+- action.devices.commands.mediaPrevious
+- action.devices.commands.mediaResume
+- action.devices.commands.mediaStop
+- action.devices.commands.mute
+- action.devices.commands.setVolume
+
 
 Todo:
 - Document setup
