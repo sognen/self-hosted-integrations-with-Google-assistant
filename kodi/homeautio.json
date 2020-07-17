@@ -1,0 +1,1530 @@
+{
+	"livingroom/kodi": {
+		"id": "livingroom/kodi",
+		"type": "action.devices.types.TV",
+		"disabled": false,
+		"willReportState": true,
+		"roomHint": "Living room",
+		"name": {
+			"defaultNames": [],
+			"name": "Kodi",
+			"nicknames": []
+		},
+		"deviceInfo": {
+			"manufacturer": "openHome",
+			"model": "0",
+			"hwVersion": "0",
+			"swVersion": "0"
+		},
+		"traits": [
+			{
+				"trait": "action.devices.traits.Modes",
+				"attributes": {
+					"availableModes": [
+						{
+							"name": "input source",
+							"name_values": [
+								{
+									"name_synonym": [
+										"activity"
+									],
+									"lang": "en"
+								}
+							],
+							"settings": [
+								{
+									"setting_name": "kodi",
+									"setting_values": [
+										{
+											"setting_synonym": [
+												"kodi",
+												"media centre"
+											],
+											"lang": "en"
+										}
+									]
+								},
+								{
+									"setting_name": "video player",
+									"setting_values": [
+										{
+											"setting_synonym": [
+												"video player",
+												"chromecast video"
+											],
+											"lang": "en"
+										}
+									]
+								},
+								{
+									"setting_name": "audio player",
+									"setting_values": [
+										{
+											"setting_synonym": [
+												"audio player",
+												"chromecast audio"
+											],
+											"lang": "en"
+										}
+									]
+								}
+							],
+							"ordered": false
+						}
+					]
+				},
+				"commands": {
+					"action.devices.commands.SetModes": {
+						"updateModeSettings.input source": "livingroom/amplifier/mode/set"
+					}
+				},
+				"state": {
+					"currentModeSettings.input source": {
+						"topic": "livingroom/amplifier/mode",
+						"googleType": "string",
+						"valueMap": [
+							{
+								"mqtt": "MPLAY",
+								"type": "value",
+								"google": "kodi"
+							},
+							{
+								"mqtt": "BD",
+								"type": "value",
+								"google": "video player"
+							},
+							{
+								"mqtt": "AUX1",
+								"type": "value",
+								"google": "audio player"
+							},
+							{
+								"mqtt": "PowerOff",
+								"type": "value",
+								"google": "off"
+							}
+						]
+					}
+				}
+			},
+			{
+				"trait": "action.devices.traits.OnOff",
+				"attributes": {},
+				"commands": {
+					"action.devices.commands.OnOff": {
+						"on": "livingroom/tv/power/set"
+					}
+				},
+				"state": {
+					"on": {
+						"topic": "livingroom/tv/power",
+						"googleType": "bool",
+						"valueMap": [
+							{
+								"mqtt": "on",
+								"type": "value",
+								"google": true
+							},
+							{
+								"mqtt": "off",
+								"type": "value",
+								"google": false
+							}
+						]
+					}
+				}
+			},
+			{
+				"trait": "action.devices.traits.Volume",
+				"attributes": {
+					"volumeMaxLevel": 70,
+					"volumeCanMuteAndUnmute": true,
+					"volumeDefaultPercentage": 30,
+					"levelStepSize": 2
+				},
+				"commands": {
+					"action.devices.commands.setVolume": {
+						"volumeLevel": "livingroom/amplifier/volume/set"
+					},
+					"action.devices.commands.mute": {
+						"mute": "livingroom/amplifier/mute/set"
+					}
+				},
+				"state": {
+					"currentVolume": {
+						"topic": "livingroom/amplifier/volume",
+						"googleType": "numeric",
+						"valueMap": null
+					},
+					"isMuted": {
+						"topic": "livingroom/amplifier/mute",
+						"googleType": "bool",
+						"valueMap": [
+							{
+								"mqtt": "ON",
+								"type": "value",
+								"google": true
+							},
+							{
+								"mqtt": "OFF",
+								"type": "value",
+								"google": false
+							}
+						]
+					}
+				}
+			},
+			{
+				"trait": "action.devices.traits.Channel",
+				"attributes": {
+					"availableChannels": [
+						{
+							"key": "1438667575",
+							"names": [
+								"Animal Planet"
+							],
+							"number": "103"
+						},
+						{
+							"key": "1023136028",
+							"names": [
+								"BBC Brit"
+							],
+							"number": "75"
+						},
+						{
+							"key": "980480405",
+							"names": [
+								"Boomerang"
+							],
+							"number": "71"
+						},
+						{
+							"key": "1502793520",
+							"names": [
+								"C More First"
+							],
+							"number": "108"
+						},
+						{
+							"key": "467888432",
+							"names": [
+								"C More Hits"
+							],
+							"number": "26"
+						},
+						{
+							"key": "1934503478",
+							"names": [
+								"C More Series"
+							],
+							"number": "128"
+						},
+						{
+							"key": "562464304",
+							"names": [
+								"C More Stars"
+							],
+							"number": "35"
+						},
+						{
+							"key": "907730525",
+							"names": [
+								"Cartoon Network"
+							],
+							"number": "67"
+						},
+						{
+							"key": "1655343506",
+							"names": [
+								"Discovery Investigation"
+							],
+							"number": "118"
+						},
+						{
+							"key": "2079508751",
+							"names": [
+								"Discovery Science"
+							],
+							"number": "137"
+						},
+						{
+							"key": "574736160",
+							"names": [
+								"Discovery World"
+							],
+							"number": "38"
+						},
+						{
+							"key": "285845979",
+							"names": [
+								"Disney Channel"
+							],
+							"number": "13"
+						},
+						{
+							"key": "2113043720",
+							"names": [
+								"Disney Junior"
+							],
+							"number": "139"
+						},
+						{
+							"key": "989016137",
+							"names": [
+								"Disney XD"
+							],
+							"number": "72"
+						},
+						{
+							"key": "696621802",
+							"names": [
+								"Eurosport 1"
+							],
+							"number": "54"
+						},
+						{
+							"key": "1533468104",
+							"names": [
+								"Eurosport Norge",
+								"Eurosport Norway"
+							],
+							"number": "110"
+						},
+						{
+							"key": "1448810508",
+							"names": [
+								"Eurosport Pluss 1"
+							],
+							"number": "105"
+						},
+						{
+							"key": "1396657298",
+							"names": [
+								"Eurosport Pluss 10"
+							],
+							"number": "100"
+						},
+						{
+							"key": "404636173",
+							"names": [
+								"Eurosport Pluss 11"
+							],
+							"number": "20"
+						},
+						{
+							"key": "106157846",
+							"names": [
+								"Eurosport Pluss 12"
+							],
+							"number": "5"
+						},
+						{
+							"key": "2092257178",
+							"names": [
+								"Eurosport Pluss 2"
+							],
+							"number": "138"
+						},
+						{
+							"key": "694881630",
+							"names": [
+								"Eurosport Pluss 3"
+							],
+							"number": "53"
+						},
+						{
+							"key": "2050089414",
+							"names": [
+								"Eurosport Pluss 4"
+							],
+							"number": "136"
+						},
+						{
+							"key": "1553398173",
+							"names": [
+								"Eurosport Pluss 5"
+							],
+							"number": "114"
+						},
+						{
+							"key": "718229927",
+							"names": [
+								"Eurosport Pluss 6"
+							],
+							"number": "55"
+						},
+						{
+							"key": "354259153",
+							"names": [
+								"Eurosport Pluss 7"
+							],
+							"number": "18"
+						},
+						{
+							"key": "1438857638",
+							"names": [
+								"Eurosport Pluss 8"
+							],
+							"number": "104"
+						},
+						{
+							"key": "581481051",
+							"names": [
+								"Eurosport Pluss 9"
+							],
+							"number": "40"
+						},
+						{
+							"key": "754151151",
+							"names": [
+								"FEM"
+							],
+							"number": "58"
+						},
+						{
+							"key": "564158804",
+							"names": [
+								"FOX Norge"
+							],
+							"number": "36"
+						},
+						{
+							"key": "567594713",
+							"names": [
+								"Fatsone"
+							],
+							"number": "37"
+						},
+						{
+							"key": "2117770762",
+							"names": [
+								"H2",
+								"History 2"
+							],
+							"number": "140"
+						},
+						{
+							"key": "497741484",
+							"names": [
+								"History"
+							],
+							"number": "29"
+						},
+						{
+							"key": "480724960",
+							"names": [
+								"MTV Norge",
+								"MTV Norway"
+							],
+							"number": "27"
+						},
+						{
+							"key": "1545647773",
+							"names": [
+								"Matkanalen",
+								"Food channel"
+							],
+							"number": "113"
+						},
+						{
+							"key": "687660205",
+							"names": [
+								"Max"
+							],
+							"number": "51"
+						},
+						{
+							"key": "1211289342",
+							"names": [
+								"nrk 1",
+								"nrk"
+							],
+							"number": "88"
+						},
+						{
+							"key": "719420171",
+							"names": [
+								"nrk 2"
+							],
+							"number": "56"
+						},
+						{
+							"key": "451480675",
+							"names": [
+								"nrk 3"
+							],
+							"number": "24"
+						},
+						{
+							"key": "2005589667",
+							"names": [
+								"nat geo wild",
+								"wild",
+								"national geographic wild"
+							],
+							"number": "132"
+						},
+						{
+							"key": "1568842617",
+							"names": [
+								"National Geo Norge",
+								"National Geo Norway",
+								"Nat Geo Norway",
+								"National Geographic Norway"
+							],
+							"number": "116"
+						},
+						{
+							"key": "264399957",
+							"names": [
+								"Nick JR",
+								"Nick Junior"
+							],
+							"number": "12"
+						},
+						{
+							"key": "1330275784",
+							"names": [
+								"Nickelodeon"
+							],
+							"number": "98"
+						},
+						{
+							"key": "523616644",
+							"names": [
+								"Nicktoons"
+							],
+							"number": "31"
+						},
+						{
+							"key": "173893257",
+							"names": [
+								"Strive Sport 1"
+							],
+							"number": "7"
+						},
+						{
+							"key": "1639750323",
+							"names": [
+								"Strive Sport 2"
+							],
+							"number": "117"
+						},
+						{
+							"key": "1425135611",
+							"names": [
+								"TLC Norge",
+								"TLC Norway",
+								"TLC"
+							],
+							"number": "102"
+						},
+						{
+							"key": "618349593",
+							"names": [
+								"TV 2",
+								"TV2"
+							],
+							"number": "45"
+						},
+						{
+							"key": "76010936",
+							"names": [
+								"TV 2 Nyhetskanalen",
+								"TV 2 News"
+							],
+							"number": "3"
+						},
+						{
+							"key": "604570378",
+							"names": [
+								"TV Norge",
+								"TV Norway"
+							],
+							"number": "43"
+						},
+						{
+							"key": "1909223920",
+							"names": [
+								"TV 2 Livsstil",
+								"TV 2 lifestyle"
+							],
+							"number": "127"
+						},
+						{
+							"key": "692601560",
+							"names": [
+								"TV2 Sport 1"
+							],
+							"number": "52"
+						},
+						{
+							"key": "1415872412",
+							"names": [
+								"TV2 Sport 2"
+							],
+							"number": "101"
+						},
+						{
+							"key": "306307378",
+							"names": [
+								"TV 2 Sport Premium"
+							],
+							"number": "15"
+						},
+						{
+							"key": "427707336",
+							"names": [
+								"TV 2 Sport Premium 2"
+							],
+							"number": "22"
+						},
+						{
+							"key": "2122895646",
+							"names": [
+								"TV 2 Zebra",
+								"Zebra"
+							],
+							"number": "141"
+						},
+						{
+							"key": "1182065905",
+							"names": [
+								"TV 3"
+							],
+							"number": "85"
+						},
+						{
+							"key": "539157922",
+							"names": [
+								"TV 6"
+							],
+							"number": "34"
+						},
+						{
+							"key": "1490501170",
+							"names": [
+								"V Film Action",
+								"Film Action"
+							],
+							"number": "106"
+						},
+						{
+							"key": "1498716624",
+							"names": [
+								"V Film Family",
+								"Film Family"
+							],
+							"number": "107"
+						},
+						{
+							"key": "588099698",
+							"names": [
+								"V Film Hits",
+								"Film Hits"
+							],
+							"number": "42"
+						},
+						{
+							"key": "836590138",
+							"names": [
+								"V Film Premiere",
+								"Film Premier"
+							],
+							"number": "63"
+						},
+						{
+							"key": "1562566035",
+							"names": [
+								"V Series"
+							],
+							"number": "115"
+						},
+						{
+							"key": "1782099190",
+							"names": [
+								"sport +",
+								"sport pluss"
+							],
+							"number": "122"
+						},
+						{
+							"key": "350596003",
+							"names": [
+								"V sport 1",
+								"sport 1"
+							],
+							"number": "17"
+						},
+						{
+							"key": "1545394494",
+							"names": [
+								"V sport 2",
+								"sport 2"
+							],
+							"number": "112"
+						},
+						{
+							"key": "666195037",
+							"names": [
+								"V sport 3",
+								"sport 3"
+							],
+							"number": "50"
+						},
+						{
+							"key": "851713527",
+							"names": [
+								"VOX"
+							],
+							"number": "64"
+						},
+						{
+							"key": "664914669",
+							"names": [
+								"Viasat 4"
+							],
+							"number": "49"
+						},
+						{
+							"key": "182499844",
+							"names": [
+								"ActionMax",
+								"action max"
+							],
+							"number": "8"
+						},
+						{
+							"key": "1206374543",
+							"names": [
+								"cinemax"
+							],
+							"number": "87"
+						},
+						{
+							"key": "455606633",
+							"names": [
+								"moremax",
+								"more max"
+							],
+							"number": "25"
+						},
+						{
+							"key": "582101227",
+							"names": [
+								"Thrillermax"
+							],
+							"number": "41"
+						},
+						{
+							"key": "1276749784",
+							"names": [
+								"Epix"
+							],
+							"number": "93"
+						},
+						{
+							"key": "532504293",
+							"names": [
+								"Epix Hits"
+							],
+							"number": "32"
+						},
+						{
+							"key": "1890860502",
+							"names": [
+								"Epix Drive"
+							],
+							"number": "126"
+						},
+						{
+							"key": "488857645",
+							"names": [
+								"Fox Sports 1"
+							],
+							"number": "28"
+						},
+						{
+							"key": "1961395563",
+							"names": [
+								"Fox Sports 2"
+							],
+							"number": "131"
+						},
+						{
+							"key": "576168673",
+							"names": [
+								"HBO Comedy"
+							],
+							"number": "39"
+						},
+						{
+							"key": "861039717",
+							"names": [
+								"HBO Family"
+							],
+							"number": "65"
+						},
+						{
+							"key": "611920727",
+							"names": [
+								"HBO"
+							],
+							"number": "44"
+						},
+						{
+							"key": "1129587830",
+							"names": [
+								"HBO Signature"
+							],
+							"number": "83"
+						},
+						{
+							"key": "1130731005",
+							"names": [
+								"HBO Zone"
+							],
+							"number": "84"
+						},
+						{
+							"key": "1796255320",
+							"names": [
+								"Moviemax"
+							],
+							"number": "124"
+						},
+						{
+							"key": "183081609",
+							"names": [
+								"Outermax"
+							],
+							"number": "9"
+						},
+						{
+							"key": "1283971627",
+							"names": [
+								"Showtime Beyond"
+							],
+							"number": "94"
+						},
+						{
+							"key": "1027362976",
+							"names": [
+								"Showtime Extreme"
+							],
+							"number": "76"
+						},
+						{
+							"key": "878243499",
+							"names": [
+								"Showtime"
+							],
+							"number": "66"
+						},
+						{
+							"key": "401331941",
+							"names": [
+								"Showtime Women"
+							],
+							"number": "19"
+						},
+						{
+							"key": "1737763935",
+							"names": [
+								"Starz Comedy"
+							],
+							"number": "121"
+						},
+						{
+							"key": "2028353636",
+							"names": [
+								"Starz"
+							],
+							"number": "134"
+						},
+						{
+							"key": "1248656958",
+							"names": [
+								"Starz Edge"
+							],
+							"number": "91"
+						},
+						{
+							"key": "1276731627",
+							"names": [
+								"Starz Encore"
+							],
+							"number": "92"
+						},
+						{
+							"key": "2029791178",
+							"names": [
+								"True Movies"
+							],
+							"number": "142"
+						},
+						{
+							"key": "1213409018",
+							"names": [
+								"Sky Cinema Premiere"
+							],
+							"number": "89"
+						},
+						{
+							"key": "990540802",
+							"names": [
+								"Sky Cinema Action"
+							],
+							"number": "73"
+						},
+						{
+							"key": "807934709",
+							"names": [
+								"Sky Cinema Select"
+							],
+							"number": "60"
+						},
+						{
+							"key": "1309216273",
+							"names": [
+								"Sky Cinema Drama"
+							],
+							"number": "96"
+						},
+						{
+							"key": "23844753",
+							"names": [
+								"Sky Cinema Greats"
+							],
+							"number": "1"
+						},
+						{
+							"key": "1011326921",
+							"names": [
+								"Sky Cinema Disney"
+							],
+							"number": "74"
+						},
+						{
+							"key": "627911540",
+							"names": [
+								"Sky Cinema Comedy",
+								"cinema comedy",
+								"sky comedy"
+							],
+							"number": "46"
+						},
+						{
+							"key": "1088474444",
+							"names": [
+								"Sky Cinema Thriller"
+							],
+							"number": "81"
+						},
+						{
+							"key": "1835058443",
+							"names": [
+								"BT Sport 1"
+							],
+							"number": "125"
+						},
+						{
+							"key": "644912628",
+							"names": [
+								"BT Sport 2"
+							],
+							"number": "47"
+						},
+						{
+							"key": "821794193",
+							"names": [
+								"BT Sport 3"
+							],
+							"number": "61"
+						},
+						{
+							"key": "1938534685",
+							"names": [
+								"BT Sport ESPN"
+							],
+							"number": "129"
+						},
+						{
+							"key": "2121061257",
+							"names": [
+								"BBC World News"
+							],
+							"number": "153"
+						},
+						{
+							"key": "916649053",
+							"names": [
+								"Box Nation"
+							],
+							"number": "68"
+						},
+						{
+							"key": "1543479827",
+							"names": [
+								"DMAX"
+							],
+							"number": "143"
+						},
+						{
+							"key": "44095467",
+							"names": [
+								"MTV Live"
+							],
+							"number": "144"
+						},
+						{
+							"key": "1280854010",
+							"names": [
+								"MTV"
+							],
+							"number": "145"
+						},
+						{
+							"key": "1734151200",
+							"names": [
+								"MTV Base"
+							],
+							"number": "151"
+						},
+						{
+							"key": "1101967932",
+							"names": [
+								"MTV Classic"
+							],
+							"number": "149"
+						},
+						{
+							"key": "2118552641",
+							"names": [
+								"MTV Hits"
+							],
+							"number": "152"
+						},
+						{
+							"key": "65020211",
+							"names": [
+								"MTV Dance"
+							],
+							"number": "146"
+						},
+						{
+							"key": "762766415",
+							"names": [
+								"MTV OMG"
+							],
+							"number": "148"
+						},
+						{
+							"key": "1623259698",
+							"names": [
+								"MTV Music"
+							],
+							"number": "150"
+						},
+						{
+							"key": "657525171",
+							"names": [
+								"MTV Rocks"
+							],
+							"number": "147"
+						},
+						{
+							"key": "781510642",
+							"names": [
+								"Sky Cinema Family"
+							],
+							"number": "59"
+						},
+						{
+							"key": "1072838650",
+							"names": [
+								"Sky Cinema Sci-Fi &amp; Horror"
+							],
+							"number": "79"
+						},
+						{
+							"key": "1794893668",
+							"names": [
+								"Sky Cinema Hits"
+							],
+							"number": "123"
+						},
+						{
+							"key": "432849826",
+							"names": [
+								"Showtime Showcase"
+							],
+							"number": "23"
+						},
+						{
+							"key": "1544596910",
+							"names": [
+								"Showtime Next"
+							],
+							"number": "111"
+						},
+						{
+							"key": "503147869",
+							"names": [
+								"ShowTime 2"
+							],
+							"number": "30"
+						},
+						{
+							"key": "1394255849",
+							"names": [
+								"Starz Cinema"
+							],
+							"number": "99"
+						},
+						{
+							"key": "347292021",
+							"names": [
+								"Indie"
+							],
+							"number": "16"
+						},
+						{
+							"key": "535959370",
+							"names": [
+								"Alternative"
+							],
+							"number": "33"
+						},
+						{
+							"key": "95114608",
+							"names": [
+								"Brits Plus Hits"
+							],
+							"number": "4"
+						},
+						{
+							"key": "1314934902",
+							"names": [
+								"Country"
+							],
+							"number": "97"
+						},
+						{
+							"key": "928019937",
+							"names": [
+								"Dance"
+							],
+							"number": "69"
+						},
+						{
+							"key": "294516655",
+							"names": [
+								"Hip Hop and R&B"
+							],
+							"number": "14"
+						},
+						{
+							"key": "1114779113",
+							"names": [
+								"Hit List"
+							],
+							"number": "82"
+						},
+						{
+							"key": "1948285729",
+							"names": [
+								"Holidays Yule Logs"
+							],
+							"number": "130"
+						},
+						{
+							"key": "1189347038",
+							"names": [
+								"Kidz Only"
+							],
+							"number": "86"
+						},
+						{
+							"key": "1070999906",
+							"names": [
+								"Metal"
+							],
+							"number": "78"
+						},
+						{
+							"key": "656461479",
+							"names": [
+								"Mexicana"
+							],
+							"number": "48"
+						},
+						{
+							"key": "974310994",
+							"names": [
+								"Musica Urbana"
+							],
+							"number": "70"
+						},
+						{
+							"key": "64935574",
+							"names": [
+								"Pop and Country"
+							],
+							"number": "2"
+						},
+						{
+							"key": "1717745721",
+							"names": [
+								"Pop Hits"
+							],
+							"number": "120"
+						},
+						{
+							"key": "1086214056",
+							"names": [
+								"Pop Latino"
+							],
+							"number": "80"
+						},
+						{
+							"key": "2012035546",
+							"names": [
+								"R&amp;B Soul"
+							],
+							"number": "133"
+						},
+						{
+							"key": "1509480077",
+							"names": [
+								"Rap"
+							],
+							"number": "109"
+						},
+						{
+							"key": "421090881",
+							"names": [
+								"Rock"
+							],
+							"number": "21"
+						},
+						{
+							"key": "2043533798",
+							"names": [
+								"Teen Beats"
+							],
+							"number": "135"
+						},
+						{
+							"key": "240040125",
+							"names": [
+								"Toddler Tunes"
+							],
+							"number": "10"
+						},
+						{
+							"key": "1218264040",
+							"names": [
+								"Tropicales"
+							],
+							"number": "90"
+						},
+						{
+							"key": "252178821",
+							"names": [
+								"Trowback Jamz"
+							],
+							"number": "11"
+						},
+						{
+							"key": "823974128",
+							"names": [
+								"Y2K"
+							],
+							"number": "62"
+						}
+					]
+				},
+				"commands": {
+					"action.devices.commands.selectChannel": {
+						"channelNumber": "livingroom/kodi/channel/set"
+					},
+					"action.devices.commands.ReturnChannel": {
+						"_": "livingroom/kodi/returnChannel/set"
+					},
+					"action.devices.commands.relativeChannel": {
+						"relativeChannelChange": "livingroom/kodi/relativeChannel/set"
+					}
+				},
+				"state": {
+					"channelNumber": {
+						"topic": "livingroom/kodi/channel",
+						"googleType": "numeric",
+						"valueMap": null
+					}
+				}
+			},
+			{
+				"trait": "action.devices.traits.MediaState",
+				"attributes": {
+					"supportActivityState": true,
+					"supportPlaybackState": true
+				},
+				"commands": {},
+				"state": {
+					"activityState": {
+						"topic": "livingroom/kodi/activityState",
+						"googleType": "string",
+						"valueMap": []
+					},
+					"playbackState": {
+						"topic": "livingroom/kodi/playbackState",
+						"googleType": "string",
+						"valueMap": []
+					}
+				}
+			},
+			{
+				"trait": "action.devices.traits.AppSelector",
+				"attributes": {
+					"availableApplications": [
+						{
+							"key": "youtube",
+							"names": [
+								{
+									"name_synonym": [
+										"youtube",
+										"tube"
+									],
+									"lang": "en"
+								}
+							]
+						},
+						{
+							"key": "movie",
+							"names": [
+								{
+									"name_synonym": [
+										"film",
+										"movies"
+									],
+									"lang": "en"
+								}
+							]
+						},
+						{
+							"key": "tv",
+							"names": [
+								{
+									"name_synonym": [
+										"television",
+										"show",
+										"shows",
+										"tv shows"
+									],
+									"lang": "en"
+								}
+							]
+						}
+					]
+				},
+				"commands": {
+					"action.devices.commands.appSelect": {
+						"newApplication": "livingroom/kodi/app/set"
+					}
+				},
+				"state": {
+					"currentApplication": {
+						"topic": "livingroom/kodi/app",
+						"googleType": "string",
+						"valueMap": []
+					}
+				}
+			},
+			{
+				"trait": "action.devices.traits.TransportControl",
+				"attributes": {
+					"transportControlSupportedCommands": [
+						"NEXT",
+						"PREVIOUS",
+						"PAUSE",
+						"STOP",
+						"RESUME",
+						"CAPTION_CONTROL"
+					]
+				},
+				"commands": {
+					"action.devices.commands.mediaClosedCaptioningOn": {
+						"_": "livingroom/kodi/captioningOn/set"
+					},
+					"action.devices.commands.mediaClosedCaptioningOff": {
+						"_": "livingroom/kodi/captioningOff/set"
+					},
+					"action.devices.commands.mediaNext": {
+						"_": "livingroom/kodi/mediaNext/set"
+					},
+					"action.devices.commands.mediaPrevious": {
+						"_": "livingroom/kodi/mediaPrevious/set"
+					},
+					"action.devices.commands.mediaResume": {
+						"_": "livingroom/kodi/mediaResume/set"
+					},
+					"action.devices.commands.mediaPause": {
+						"_": "livingroom/kodi/mediaPause/set"
+					},
+					"action.devices.commands.mediaStop": {
+						"_": "livingroom/kodi/mediaStop/set"
+					},
+					"action.devices.commands.mediaSeekToPosition": {
+						"absPositionMs": "livingroom/kodi/absPositionMs/set"
+					}
+				},
+				"state": {}
+			}
+		],
+		"customData": null
+	},
+	"livingroom/buttShaker": {
+		"id": "livingroom/buttShaker",
+		"type": "action.devices.types.SPEAKER",
+		"disabled": false,
+		"willReportState": true,
+		"roomHint": "Living room",
+		"name": {
+			"defaultNames": [],
+			"name": "Buttshaker",
+			"nicknames": []
+		},
+		"deviceInfo": null,
+		"traits": [
+			{
+				"trait": "action.devices.traits.OnOff",
+				"attributes": {},
+				"commands": {
+					"action.devices.commands.OnOff": {
+						"on": "livingroom/buttShaker/power/set"
+					}
+				},
+				"state": {
+					"on": {
+						"topic": "livingroom/buttShaker/power",
+						"googleType": "bool",
+						"valueMap": [
+							{
+								"mqtt": "ON",
+								"type": "value",
+								"google": true
+							},
+							{
+								"mqtt": "OFF",
+								"type": "value",
+								"google": false
+							}
+						]
+					}
+				}
+			}
+		],
+		"customData": null
+	},
+	"kitchen/smokeDetector": {
+		"id": "kitchen/smokeDetector",
+		"type": "action.devices.types.SMOKE_DETECTOR",
+		"disabled": false,
+		"willReportState": true,
+		"roomHint": "Kitchen",
+		"name": {
+			"defaultNames": [],
+			"name": "Smoke sensor",
+			"nicknames": []
+		},
+		"deviceInfo": null,
+		"traits": [
+			{
+				"trait": "action.devices.traits.SensorState",
+				"attributes": {
+					"sensorStatesSupported": [
+						{
+							"name": "SmokeLevel",
+							"numericCapabilities": {
+								"rawValueUnit": "PARTS_PER_MILLION"
+							},
+							"descriptiveCapabilities": {
+								"availableStates": [
+									"smoke detected",
+									"no smoke detected"
+								]
+							}
+						}
+					]
+				},
+				"commands": {},
+				"state": {
+					"currentSensorStateData.[0].name": {
+						"topic": null,
+						"googleType": "string",
+						"valueMap": [
+							{
+								"type": "static",
+								"google": "SmokeLevel"
+							}
+						]
+					},
+					"currentSensorStateData.[0].currentSensorState": {
+						"topic": "kitchen/smokeDetector/sensorState",
+						"googleType": "string",
+						"valueMap": []
+					}
+				}
+			}
+		],
+		"customData": null
+	},
+	"bedroom/bedroomDoor": {
+		"id": "bedroom/bedroomDoor",
+		"type": "action.devices.types.DOOR",
+		"disabled": false,
+		"willReportState": true,
+		"roomHint": "Bedroom",
+		"name": {
+			"defaultNames": [],
+			"name": "Bedroom door",
+			"nicknames": []
+		},
+		"deviceInfo": null,
+		"traits": [
+			{
+				"trait": "action.devices.traits.OpenClose",
+				"attributes": {
+					"openDirection": [
+						"LEFT",
+						"RIGHT"
+					],
+					"discreteOnlyOpenClose": true,
+					"queryOnlyOpenClose": true
+				},
+				"commands": {},
+				"state": {
+					"openPercent": {
+						"topic": "bedroom/bedroomDoor/status",
+						"googleType": "numeric",
+						"valueMap": [
+							{
+								"mqtt": "OPEN",
+								"type": "value",
+								"google": 100
+							},
+							{
+								"mqtt": "CLOSED",
+								"type": "value",
+								"google": 0
+							}
+						]
+					}
+				}
+			}
+		],
+		"customData": null
+	}
+}
