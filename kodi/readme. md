@@ -2,7 +2,7 @@
 What does it do?
 Allows Google Assistant to control Kodi.
 
-The following commandand traits are fully or partially supported:
+The following commandands are fully or partially supported:
 
 - action.devices.commands.appSelect
 - action.devices.commands.setInput
