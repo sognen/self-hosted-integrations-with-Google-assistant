@@ -33,6 +33,27 @@ Allows Google Assistant to control Kodi, e.g.,
 - Node-red - https://www.nodered.org
 - Kodi - https://www.kodi.tv
 
+### Setup instructions:
+Step 1 
+Install the excellent https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome Detailed instruction can be found in the wiki.
+
+Step 2
+Install a MQTT broker, e.g., Eclipse Mosquitto.
+
+Step 3
+Install Node-red found here https://www.nodered.org
+Note: all three above is best installed as docker containers.
+
+Step 4
+
+
+
+Step 5
+
+
+
+
+
 
 
 ### Todo:
