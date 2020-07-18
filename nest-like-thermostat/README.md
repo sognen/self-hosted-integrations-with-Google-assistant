@@ -1,6 +1,6 @@
 # What does it do?
 
-![nest-hub.jpg](https://raw.githubusercontent.com/sognen/homeautio-config/master/kodi/images/nest-hub.jpg)
+![nest-like-thermostat.jpg](https://raw.githubusercontent.com/sognen/homeautio-config/master/nest-like-thermostat/images/nest-like-thermostat.jpg)
 
 Allows Google Assistant to control Nest like thermostat.
 
