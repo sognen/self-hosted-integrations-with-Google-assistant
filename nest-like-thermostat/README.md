@@ -4,6 +4,8 @@
 
 Allows Google Assistant to control Nest like thermostat.
 
+this not ready for usage.
+
 ### Todo:
 
 * Document setup
