@@ -1,65 +1,43 @@
-﻿
-
 # What does it do?
+
+![nest-hub.jpg](https://raw.githubusercontent.com/sognen/homeautio-config/master/kodi/images/nest-hub.jpg)
+
 Allows Google Assistant to control Kodi, e.g.,
 
-- Play Animal Planet
-- Open Spotify
-- Open movies 
-- Set volume to 50%
-- Pause, Stop
-- Turn off/on
-
-
-### The following commandands are fully or partially supported:
-
-- action.devices.commands.appSelect 
-- action.devices.commands.setInput
-- action.devices.commands.OnOff
-- action.devices.commands.mediaClosedCaptioningOff
-- action.devices.commands.mediaClosedCaptioningOn (not working)
-- action.devices.commands.mediaNext
-- action.devices.commands.mediaPause
-- action.devices.commands.mediaPrevious
-- action.devices.commands.mediaResume
-- action.devices.commands.mediaStop
-- action.devices.commands.mute
-- action.devices.commands.setVolume
-
+* Switch to a tv channel
+* Return to the last/previous channel the user was on.
+* Adjust the current channel by a relative amount.
+* Playback commands such as pause, stop, next and previous
+* Open addons on Kodi, e.g., Youtube, Spotify and movie library.
+* Set volume and mute
 
 ### Software needed:
-- HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
-- MQTT broker
-- Node-red - https://www.nodered.org
-- Kodi - https://www.kodi.tv
+
+* HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
+* MQTT broker
+* Node-red - https://www.nodered.org
+* Kodi - https://www.kodi.tv
 
 ### Setup instructions:
-Step 1 
-- Install the excellent https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome Detailed instruction can be found in the wiki.
-- Install a MQTT broker, e.g., Eclipse Mosquitto.
-- Install Node-red found here https://www.nodered.org
-Note: all three above is best installed as docker containers.
+
+Step 1
+
+* Install the excellent https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome Detailed instruction can be found in the wiki.
+* Install a MQTT broker, e.g., Eclipse Mosquitto.
+* Install Node-red found here https://www.nodered.org Note: all three above is best installed as docker containers.
 
 Step 2
-- Copy googleDevices.json into folder HomeAutio config folder
 
-
+* Copy googleDevices.json into folder HomeAutio config folder
 
 Step 3
 
-
-
 Step 4
 
-
-Step 5
-Say "sync my devices" to your Google Assistant device.
-
-
+Step 5 Say "sync my devices" to your Google Assistant device.
 
 ### Todo:
-- Document setup
-- Complete definition of Kodi
-- Complete node-red flows
 
-
+* Document setup
+* Complete definition of Kodi
+* Complete node-red flows
