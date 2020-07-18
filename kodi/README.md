@@ -33,6 +33,7 @@ Step 2
 Step 3
 * Import nodered.json into your nodred
 * The following nodes need to be installed and configured: node-red-contrib-kodi, node-red-contrib-mqtt-broker
+
 Step 4
 
 Step 5 Say "sync my devices" to your Google Assistant device.
