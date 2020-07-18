@@ -1,97 +1,5 @@
 [
 	{
-		"id": "5c210411.cf0a3c",
-		"type": "mqtt out",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/amplifier/volume",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 1471,
-		"y": 1233,
-		"wires": []
-	},
-	{
-		"id": "88a9cab4.1fb8c8",
-		"type": "mqtt in",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/amplifier/volume/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 250,
-		"y": 1240,
-		"wires": [
-			[
-				"5d4a17f0.3a21b8"
-			]
-		]
-	},
-	{
-		"id": "f67dc845.f45b38",
-		"type": "openhab2-out",
-		"z": "6b0d241c.c6415c",
-		"name": "volume",
-		"controller": "67a65f4.52770a",
-		"itemname": "MarantzSR5011_MainZone_Volume",
-		"topic": "ItemCommand",
-		"payload": "",
-		"x": 880,
-		"y": 1240,
-		"wires": [
-			[
-				"32ad73f9.fe4c4c"
-			]
-		]
-	},
-	{
-		"id": "f4123115.98073",
-		"type": "mqtt out",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/amplifier/mute",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 1470,
-		"y": 1100,
-		"wires": []
-	},
-	{
-		"id": "771b48eb.724618",
-		"type": "mqtt in",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/amplifier/mute/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 240,
-		"y": 1089,
-		"wires": [
-			[
-				"48a48f6e.df509"
-			]
-		]
-	},
-	{
-		"id": "fb5774f0.c141a8",
-		"type": "openhab2-out",
-		"z": "6b0d241c.c6415c",
-		"name": "Mute",
-		"controller": "67a65f4.52770a",
-		"itemname": "MarantzSR5011_MainZone_Mute",
-		"topic": "ItemCommand",
-		"payload": "",
-		"x": 705,
-		"y": 1090,
-		"wires": [
-			[]
-		]
-	},
-	{
 		"id": "4331fceb.971664",
 		"type": "mqtt in",
 		"z": "6b0d241c.c6415c",
@@ -197,7 +105,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 240,
-		"y": 946,
+		"y": 980,
 		"wires": [
 			[
 				"e2096691.406f38"
@@ -214,23 +122,10 @@
 		"topic": "ItemCommand",
 		"payload": "",
 		"x": 519,
-		"y": 946,
+		"y": 980,
 		"wires": [
 			[]
 		]
-	},
-	{
-		"id": "b4b3cabc.14dca8",
-		"type": "mqtt out",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/amplifier/input",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 1468,
-		"y": 956,
-		"wires": []
 	},
 	{
 		"id": "c5e0712d.20af",
@@ -242,125 +137,10 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 220,
-		"y": 580,
+		"y": 614,
 		"wires": [
 			[
 				"765f0929.496ba8"
-			]
-		]
-	},
-	{
-		"id": "7bbf9e7e.3dfaf",
-		"type": "openhab2-out",
-		"z": "6b0d241c.c6415c",
-		"name": "Power",
-		"controller": "67a65f4.52770a",
-		"itemname": "Buttshaker_Power",
-		"topic": "ItemCommand",
-		"payload": "",
-		"x": 710,
-		"y": 1040,
-		"wires": [
-			[]
-		]
-	},
-	{
-		"id": "a590e9fd.8467d8",
-		"type": "mqtt in",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/buttShaker/power/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 250,
-		"y": 1040,
-		"wires": [
-			[
-				"7c5a7376.0bd23c"
-			]
-		]
-	},
-	{
-		"id": "31becd00.9f88c4",
-		"type": "mqtt out",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/buttShaker/power",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 1460,
-		"y": 1053,
-		"wires": []
-	},
-	{
-		"id": "73302037.63e64",
-		"type": "openhab2-in",
-		"z": "6b0d241c.c6415c",
-		"name": "Volume",
-		"controller": "67a65f4.52770a",
-		"itemname": "MarantzSR5011_MainZone_Volume",
-		"x": 1266,
-		"y": 1239,
-		"wires": [
-			[
-				"5c210411.cf0a3c"
-			],
-			[]
-		]
-	},
-	{
-		"id": "c927d9ca.876158",
-		"type": "openhab2-in",
-		"z": "6b0d241c.c6415c",
-		"name": "Mute",
-		"controller": "67a65f4.52770a",
-		"itemname": "MarantzSR5011_MainZone_Mute",
-		"x": 1263,
-		"y": 1107,
-		"wires": [
-			[
-				"f4123115.98073"
-			],
-			[]
-		]
-	},
-	{
-		"id": "48a48f6e.df509",
-		"type": "change",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"rules": [
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "True",
-				"fromt": "str",
-				"to": "ON",
-				"tot": "str"
-			},
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "False",
-				"fromt": "str",
-				"to": "OFF",
-				"tot": "str"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 542,
-		"y": 1090,
-		"wires": [
-			[
-				"fb5774f0.c141a8"
 			]
 		]
 	},
@@ -381,76 +161,6 @@
 		]
 	},
 	{
-		"id": "3b532978.40c416",
-		"type": "openhab2-in",
-		"z": "6b0d241c.c6415c",
-		"name": "Input",
-		"controller": "67a65f4.52770a",
-		"itemname": "MarantzSR5011_MainZone_InputSource",
-		"x": 1263,
-		"y": 962,
-		"wires": [
-			[
-				"b4b3cabc.14dca8"
-			],
-			[]
-		]
-	},
-	{
-		"id": "69a9c2.d7f8364",
-		"type": "openhab2-in",
-		"z": "6b0d241c.c6415c",
-		"name": "Power",
-		"controller": "67a65f4.52770a",
-		"itemname": "Buttshaker_Power",
-		"x": 1263,
-		"y": 1059,
-		"wires": [
-			[
-				"31becd00.9f88c4"
-			],
-			[]
-		]
-	},
-	{
-		"id": "7c5a7376.0bd23c",
-		"type": "change",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"rules": [
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "True",
-				"fromt": "str",
-				"to": "ON",
-				"tot": "str"
-			},
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "False",
-				"fromt": "str",
-				"to": "OFF",
-				"tot": "str"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 542,
-		"y": 1040,
-		"wires": [
-			[
-				"7bbf9e7e.3dfaf"
-			]
-		]
-	},
-	{
 		"id": "d1103e01.5ab58",
 		"type": "mqtt in",
 		"z": "6b0d241c.c6415c",
@@ -460,7 +170,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 240,
-		"y": 620,
+		"y": 654,
 		"wires": [
 			[
 				"bd846d71.e4bca"
@@ -477,7 +187,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 250,
-		"y": 660,
+		"y": 694,
 		"wires": [
 			[
 				"161b4aab.8717b5"
@@ -494,7 +204,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 260,
-		"y": 700,
+		"y": 734,
 		"wires": [
 			[
 				"e5a42d2f.fbe33"
@@ -511,7 +221,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 250,
-		"y": 740,
+		"y": 774,
 		"wires": [
 			[
 				"f9522cd3.2bd0f"
@@ -528,7 +238,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 240,
-		"y": 780,
+		"y": 814,
 		"wires": [
 			[
 				"165660e5.eefc1f"
@@ -547,7 +257,7 @@
 		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"{{{payload}}}\"\n\t\t\t]\n\n\t}\n}",
 		"output": "json",
 		"x": 540,
-		"y": 580,
+		"y": 614,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -603,7 +313,7 @@
 		"to": "",
 		"reg": false,
 		"x": 400,
-		"y": 580,
+		"y": 614,
 		"wires": [
 			[
 				"5f1ea0a8.c9f4b"
@@ -620,11 +330,10 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 230,
-		"y": 540,
+		"y": 1034,
 		"wires": [
 			[
-				"61d16dfc.3f92d4",
-				"798464ce.7af7fc"
+				"61d16dfc.3f92d4"
 			]
 		]
 	},
@@ -639,8 +348,8 @@
 		"syntax": "mustache",
 		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"args\": {\n\t\t\"item\": {\n\t\t\t\"channelid\": {{payload}}\n\t\t}\n\t}\n}",
 		"output": "json",
-		"x": 540,
-		"y": 540,
+		"x": 860,
+		"y": 1034,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -659,7 +368,7 @@
 		"template": "{\n    \"cmd\": \"Player.Stop\",\n    \"args\" :{\n        \"playerid\": 1\n    }\n}",
 		"output": "str",
 		"x": 540,
-		"y": 780,
+		"y": 814,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -675,8 +384,8 @@
 		"unit_number": "1",
 		"output": "1",
 		"kodicommand": "",
-		"x": 741,
-		"y": 700,
+		"x": 1050,
+		"y": 754,
 		"wires": []
 	},
 	{
@@ -691,7 +400,7 @@
 		"template": "{\n    \"cmd\": \"Player.PlayPause\",\n    \"args\" :{\n        \"playerid\": 1\n    }\n}",
 		"output": "str",
 		"x": 540,
-		"y": 660,
+		"y": 694,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -710,7 +419,7 @@
 		"template": "{\n    \"cmd\": \"Player.PlayPause\",\n    \"args\" :{\n        \"playerid\": 1\n    }\n}",
 		"output": "str",
 		"x": 540,
-		"y": 740,
+		"y": 774,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -729,7 +438,7 @@
 		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"to\": \"next\"\n    }\n}",
 		"output": "str",
 		"x": 540,
-		"y": 620,
+		"y": 654,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -748,7 +457,7 @@
 		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"to\": \"previous\"\n    }\n}",
 		"output": "str",
 		"x": 540,
-		"y": 700,
+		"y": 734,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -767,7 +476,7 @@
 		"template": "{\n\t\"cmd\": \"Player.Seek\",\n\t\"args\": {\n\t\t\"playerid\": 1,\n\t\t\"value\": {\n\t\t\t\"milliseconds\": {{payload}}\n\t\t}\n\t}\n}",
 		"output": "json",
 		"x": 540,
-		"y": 820,
+		"y": 854,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -784,7 +493,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 260,
-		"y": 820,
+		"y": 854,
 		"wires": [
 			[
 				"b0b8dc87.59a68"
@@ -801,7 +510,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 250,
-		"y": 860,
+		"y": 894,
 		"wires": [
 			[
 				"b09c2950.6a43d8"
@@ -818,7 +527,7 @@
 		"datatype": "auto",
 		"broker": "887f143b.dd5858",
 		"x": 250,
-		"y": 900,
+		"y": 934,
 		"wires": [
 			[
 				"b9a83b66.bf4498"
@@ -837,7 +546,7 @@
 		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"subtitle\": \"on\"\n    }\n}\n\n",
 		"output": "str",
 		"x": 540,
-		"y": 860,
+		"y": 894,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -856,7 +565,7 @@
 		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"subtitle\": \"off\"\n    }\n}\n\n",
 		"output": "str",
 		"x": 540,
-		"y": 900,
+		"y": 934,
 		"wires": [
 			[
 				"646b620a.7c58fc"
@@ -875,7 +584,8 @@
 			[
 				"ab693945.3b12b8",
 				"757f6c66.a0f194",
-				"c4733c.dd40fcc8"
+				"c4733c.dd40fcc8",
+				"badbc689.c22c98"
 			]
 		]
 	},
@@ -1193,64 +903,64 @@
 		]
 	},
 	{
-		"id": "798464ce.7af7fc",
-		"type": "debug",
+		"id": "cb8134c0.37f278",
+		"type": "kodi-in",
 		"z": "6b0d241c.c6415c",
 		"name": "",
-		"active": true,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "false",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 750,
-		"y": 560,
-		"wires": []
-	},
-	{
-		"id": "51ee5c07.115864",
-		"type": "mqtt in",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/amplifier/relativeVolume/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 270,
-		"y": 1180,
-		"wires": [
-			[
-				"c29b740a.80ad18"
-			]
-		]
-	},
-	{
-		"id": "45316f55.84d29",
-		"type": "mqtt in",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"topic": "livingroom/amplifier/volume",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 230,
-		"y": 1140,
+		"controller": "b774da3d.4d57f8",
+		"x": 170,
+		"y": 160,
 		"wires": [
 			[]
 		]
 	},
 	{
-		"id": "32ad73f9.fe4c4c",
+		"id": "badbc689.c22c98",
+		"type": "switch",
+		"z": "6b0d241c.c6415c",
+		"name": "",
+		"property": "payload.notification",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "Player.OnPlay",
+				"vt": "str"
+			},
+			{
+				"t": "else"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
+		"x": 330,
+		"y": 540,
+		"wires": [
+			[
+				"73381961.c2acc8"
+			],
+			[]
+		]
+	},
+	{
+		"id": "e5590df7.d3ed3",
 		"type": "change",
 		"z": "6b0d241c.c6415c",
 		"name": "",
 		"rules": [
 			{
 				"t": "set",
-				"p": "volume",
+				"p": "returnChannel",
 				"pt": "flow",
-				"to": "payload",
+				"to": "currentChannel",
+				"tot": "flow"
+			},
+			{
+				"t": "set",
+				"p": "currentChannel",
+				"pt": "flow",
+				"to": "payload.data.data.item.id",
 				"tot": "msg"
 			}
 		],
@@ -1259,30 +969,77 @@
 		"from": "",
 		"to": "",
 		"reg": false,
-		"x": 1080,
-		"y": 1240,
+		"x": 693,
+		"y": 528,
 		"wires": [
 			[]
 		]
 	},
 	{
-		"id": "3ff1aa8a.518196",
-		"type": "debug",
+		"id": "73381961.c2acc8",
+		"type": "switch",
 		"z": "6b0d241c.c6415c",
 		"name": "",
-		"active": true,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "false",
-		"statusVal": "",
-		"statusType": "auto",
+		"property": "payload.data.data.item.type",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "channel",
+				"vt": "str"
+			},
+			{
+				"t": "else"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
+		"outputs": 2,
 		"x": 530,
-		"y": 1000,
-		"wires": []
+		"y": 534,
+		"wires": [
+			[
+				"e5590df7.d3ed3"
+			],
+			[]
+		]
 	},
 	{
-		"id": "5d4a17f0.3a21b8",
+		"id": "ffdf1a37.921558",
+		"type": "mqtt in",
+		"z": "6b0d241c.c6415c",
+		"name": "",
+		"topic": "livingroom/kodi/relativeChannel/set",
+		"qos": "2",
+		"datatype": "auto",
+		"broker": "887f143b.dd5858",
+		"x": 260,
+		"y": 1114,
+		"wires": [
+			[
+				"88ec64e8.503ab8"
+			]
+		]
+	},
+	{
+		"id": "abd9283f.32aa68",
+		"type": "mqtt in",
+		"z": "6b0d241c.c6415c",
+		"name": "",
+		"topic": "livingroom/kodi/returnChannel/set",
+		"qos": "2",
+		"datatype": "auto",
+		"broker": "887f143b.dd5858",
+		"x": 250,
+		"y": 1074,
+		"wires": [
+			[
+				"2a4f4efd.685e62"
+			]
+		]
+	},
+	{
+		"id": "2a4f4efd.685e62",
 		"type": "change",
 		"z": "6b0d241c.c6415c",
 		"name": "",
@@ -1291,8 +1048,8 @@
 				"t": "set",
 				"p": "payload",
 				"pt": "msg",
-				"to": "$number(payload)",
-				"tot": "jsonata"
+				"to": "returnChannel",
+				"tot": "flow"
 			}
 		],
 		"action": "",
@@ -1300,43 +1057,16 @@
 		"from": "",
 		"to": "",
 		"reg": false,
-		"x": 540,
-		"y": 1240,
+		"x": 520,
+		"y": 1074,
 		"wires": [
 			[
-				"f67dc845.f45b38"
+				"61d16dfc.3f92d4"
 			]
 		]
 	},
 	{
-		"id": "a309e8e6.7a4358",
-		"type": "change",
-		"z": "6b0d241c.c6415c",
-		"name": "",
-		"rules": [
-			{
-				"t": "set",
-				"p": "payload",
-				"pt": "msg",
-				"to": "$flowContext(\"volume\") + msg.payload",
-				"tot": "jsonata"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 680,
-		"y": 1180,
-		"wires": [
-			[
-				"f67dc845.f45b38"
-			]
-		]
-	},
-	{
-		"id": "c29b740a.80ad18",
+		"id": "88ec64e8.503ab8",
 		"type": "function",
 		"z": "6b0d241c.c6415c",
 		"name": "",
@@ -1346,10 +1076,37 @@
 		"initialize": "",
 		"finalize": "",
 		"x": 500,
-		"y": 1180,
+		"y": 1114,
 		"wires": [
 			[
-				"a309e8e6.7a4358"
+				"8baf9ab4.700788"
+			]
+		]
+	},
+	{
+		"id": "8baf9ab4.700788",
+		"type": "change",
+		"z": "6b0d241c.c6415c",
+		"name": "",
+		"rules": [
+			{
+				"t": "set",
+				"p": "payload",
+				"pt": "msg",
+				"to": "$flowContext(\"currentChannel\") + msg.payload",
+				"tot": "jsonata"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 680,
+		"y": 1114,
+		"wires": [
+			[
+				"61d16dfc.3f92d4"
 			]
 		]
 	},

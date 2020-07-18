@@ -1,108 +1,4 @@
 {
-  "livingroom/amplifier": {
-    "id": "livingroom/amplifier",
-    "type": "action.devices.types.AUDIO_VIDEO_RECEIVER",
-    "disabled": false,
-    "willReportState": true,
-    "roomHint": "Living room",
-    "name": {
-      "defaultNames": [],
-      "name": "Amplifier",
-      "nicknames": []
-    },
-    "deviceInfo": null,
-    "traits": [
-      {
-        "trait": "action.devices.traits.InputSelector",
-        "attributes": {
-          "availableInputs": [
-            {
-              "key": "MPLAY",
-              "names": [
-                {
-                  "lang": "en",
-                  "name_synonym": [
-                    "hdmi 1",
-                    "1st hdmi",
-                    "kodi"
-                  ]
-                }
-              ]
-            },
-            {
-              "key": "AUX1",
-              "names": [
-                {
-                  "lang": "en",
-                  "name_synonym": [
-                    "aux 1",
-                    "audio"
-                  ]
-                }
-              ]
-            }
-          ],
-          "orderedInputs": true
-        },
-        "commands": {
-          "action.devices.commands.SetInput": {
-            "newInput": "livingroom/amplifier/input/set"
-          }
-        },
-        "state": {
-          "currentInput": {
-            "topic": "livingroom/amplifier/input",
-            "googleType": "string",
-            "valueMap": null
-          }
-        }
-      }
-    ],
-    "customData": null
-  },
-  "livingroom/buttShaker": {
-    "id": "livingroom/buttShaker",
-    "type": "action.devices.types.SPEAKER",
-    "disabled": false,
-    "willReportState": true,
-    "roomHint": "Living room",
-    "name": {
-      "defaultNames": [],
-      "name": "Buttshaker",
-      "nicknames": []
-    },
-    "deviceInfo": null,
-    "traits": [
-      {
-        "trait": "action.devices.traits.OnOff",
-        "attributes": {},
-        "commands": {
-          "action.devices.commands.OnOff": {
-            "on": "livingroom/buttShaker/power/set"
-          }
-        },
-        "state": {
-          "on": {
-            "topic": "livingroom/buttShaker/power",
-            "googleType": "bool",
-            "valueMap": [
-              {
-                "mqtt": "ON",
-                "type": "value",
-                "google": true
-              },
-              {
-                "mqtt": "OFF",
-                "type": "value",
-                "google": false
-              }
-            ]
-          }
-        }
-      }
-    ],
-    "customData": null
-  },
   "livingroom/kodi": {
     "id": "livingroom/kodi",
     "type": "action.devices.types.TV",
@@ -1363,7 +1259,7 @@
           "action.devices.commands.selectChannel": {
             "channelNumber": "livingroom/kodi/channel/set"
           },
-          "action.devices.commands.ReturnChannel": {
+          "action.devices.commands.returnChannel": {
             "_": "livingroom/kodi/returnChannel/set"
           },
           "action.devices.commands.relativeChannel": {
@@ -1506,6 +1402,52 @@
     ],
     "customData": null
   },
+  "livingroom/balconyDoor": {
+    "id": "livingroom/balconyDoor",
+    "type": "action.devices.types.DOOR",
+    "disabled": false,
+    "willReportState": true,
+    "roomHint": "Living room",
+    "name": {
+      "defaultNames": [],
+      "name": "Balcony door",
+      "nicknames": []
+    },
+    "deviceInfo": null,
+    "traits": [
+      {
+        "trait": "action.devices.traits.OpenClose",
+        "attributes": {
+          "openDirection": [
+            "LEFT",
+            "RIGHT"
+          ],
+          "discreteOnlyOpenClose": true,
+          "queryOnlyOpenClose": true
+        },
+        "commands": {},
+        "state": {
+          "openPercent": {
+            "topic": "livingroom/balconyDoor/status",
+            "googleType": "numeric",
+            "valueMap": [
+              {
+                "mqtt": "OPEN",
+                "type": "value",
+                "google": 100
+              },
+              {
+                "mqtt": "CLOSED",
+                "type": "value",
+                "google": 0
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "customData": null
+  },
   "bedroom/vacuumCleaner": {
     "id": "bedroom/vacuumCleaner",
     "type": "action.devices.types.VACUUM",
@@ -1550,296 +1492,64 @@
     ],
     "customData": null
   },
-  "bedroom/ac": {
-    "id": "bedroom/ac",
-    "type": "action.devices.types.AC_UNIT",
+  "other/camera/danmarksplass": {
+    "id": "other/camera/danmarksplass",
+    "type": "action.devices.types.CAMERA",
     "disabled": false,
     "willReportState": true,
-    "roomHint": "Bedroom",
+    "roomHint": "Others",
     "name": {
       "defaultNames": [],
-      "name": "Air conditioning",
-      "nicknames": []
-    },
-    "deviceInfo": null,
-    "traits": [
-      {
-        "trait": "action.devices.traits.OnOff",
-        "attributes": null,
-        "commands": {
-          "action.devices.commands.OnOff": {
-            "on": "MQTT_COMMAND_TOPIC"
-          }
-        },
-        "state": {
-          "on": {
-            "topic": "MQTT_STATE_TOPIC",
-            "googleType": "bool",
-            "valueMap": [
-              {
-                "mqtt": "on",
-                "type": "value",
-                "google": true
-              },
-              {
-                "mqtt": "off",
-                "type": "value",
-                "google": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "trait": "action.devices.traits.TemperatureSetting",
-        "attributes": {
-          "availableThermostatModes": "off,heat,cool,on",
-          "thermostatTemperatureUnit": "C",
-          "commandOnlyTemperatureSetting": true
-        },
-        "commands": {
-          "action.devices.commands.ThermostatTemperatureSetpoint": {
-            "thermostatTemperatureSetpoint": "MQTT_COMMAND_TOPIC"
-          },
-          "action.devices.commands.ThermostatTemperatureSetRange": {
-            "thermostatTemperatureSetpointHigh": "MQTT_COMMAND_TOPIC",
-            "thermostatTemperatureSetpointLow": "MQTT_COMMAND_TOPIC"
-          },
-          "action.devices.commands.ThermostatSetMode": {
-            "thermostatMode": "MQTT_COMMAND_TOPIC"
-          }
-        },
-        "state": {}
-      },
-      {
-        "trait": "action.devices.traits.FanSpeed",
-        "attributes": {
-          "availableFanSpeeds": {
-            "speeds": [
-              {
-                "speed_name": "Low",
-                "speed_values": [
-                  {
-                    "speed_synonym": [
-                      "low"
-                    ],
-                    "lang": "en"
-                  }
-                ]
-              },
-              {
-                "speed_name": "High",
-                "speed_values": [
-                  {
-                    "speed_synonym": [
-                      "high"
-                    ],
-                    "lang": "en"
-                  }
-                ]
-              }
-            ],
-            "ordered": true
-          },
-          "reversible": false
-        },
-        "commands": {
-          "action.devices.commands.SetFanSpeed": {
-            "fanSpeed": "MQTT_COMMAND_TOPIC"
-          }
-        },
-        "state": {
-          "currentFanSpeedSetting": {
-            "topic": "MQTT_STATE_TOPIC",
-            "googleType": "string",
-            "valueMap": [
-              {
-                "mqtt": "1",
-                "type": "value",
-                "google": "Low"
-              },
-              {
-                "mqtt": "4",
-                "type": "value",
-                "google": "High"
-              }
-            ]
-          }
-        }
-      }
-    ],
-    "customData": null
-  },
-  "kitchen/smokeDetector": {
-    "id": "kitchen/smokeDetector",
-    "type": "action.devices.types.SMOKE_DETECTOR",
-    "disabled": false,
-    "willReportState": true,
-    "roomHint": "Kitchen",
-    "name": {
-      "defaultNames": [],
-      "name": "Smoke sensor",
-      "nicknames": []
-    },
-    "deviceInfo": null,
-    "traits": [
-      {
-        "trait": "action.devices.traits.SensorState",
-        "attributes": {
-          "sensorStatesSupported": [
-            {
-              "name": "SmokeLevel",
-              "numericCapabilities": {
-                "rawValueUnit": "PARTS_PER_MILLION"
-              },
-              "descriptiveCapabilities": {
-                "availableStates": [
-                  "smoke detected",
-                  "no smoke detected"
-                ]
-              }
-            }
-          ]
-        },
-        "commands": {},
-        "state": {
-          "currentSensorStateData.[0].name": {
-            "topic": null,
-            "googleType": "string",
-            "valueMap": [
-              {
-                "type": "static",
-                "google": "SmokeLevel"
-              }
-            ]
-          },
-          "currentSensorStateData.[0].currentSensorState": {
-            "topic": "kitchen/smokeDetector/sensorState",
-            "googleType": "string",
-            "valueMap": []
-          }
-        }
-      }
-    ],
-    "customData": null
-  },
-  "bedroom/airFreshener": {
-    "id": "bedroom/airFreshener",
-    "type": "action.devices.types.AIRFRESHENER",
-    "disabled": false,
-    "willReportState": true,
-    "roomHint": "Bedroom",
-    "name": {
-      "defaultNames": [],
-      "name": "Air freshener",
+      "name": "Danmarksplass",
       "nicknames": []
     },
     "deviceInfo": {
-      "manufacturer": "HomeAutio",
-      "model": "DIY",
+      "manufacturer": "Some Company",
+      "model": "Some Model",
       "hwVersion": "1.0",
       "swVersion": "1.0"
     },
     "traits": [
       {
-        "trait": "action.devices.traits.OnOff",
-        "attributes": {},
-        "commands": {
-          "action.devices.commands.OnOff": {
-            "on": "cmnd/tasmota_2/POWER"
-          }
-        },
-        "state": {
-          "on": {
-            "topic": "cmnd/tasmota_2/POWER",
-            "googleType": "bool",
-            "valueMap": [
-              {
-                "mqtt": "on",
-                "type": "value",
-                "google": true
-              },
-              {
-                "mqtt": "off",
-                "type": "value",
-                "google": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "trait": "action.devices.traits.Modes",
+        "trait": "action.devices.traits.CameraStream",
         "attributes": {
-          "availableModes": [
-            {
-              "name": "input source",
-              "name_values": [
-                {
-                  "name_synonym": [
-                    "activity"
-                  ],
-                  "lang": "en"
-                }
-              ],
-              "settings": [
-                {
-                  "setting_name": "tv",
-                  "setting_values": [
-                    {
-                      "setting_synonym": [
-                        "tv",
-                        "television"
-                      ],
-                      "lang": "en"
-                    }
-                  ]
-                },
-                {
-                  "setting_name": "meda player",
-                  "setting_values": [
-                    {
-                      "setting_synonym": [
-                        "chromecast"
-                      ],
-                      "lang": "en"
-                    }
-                  ]
-                }
-              ],
-              "ordered": false
-            }
-          ]
+          "cameraStreamSupportedProtocols": [
+            "hls"
+          ],
+          "cameraStreamNeedAuthToken": false,
+          "cameraStreamNeedDrmEncryption": false
         },
         "commands": {
-          "action.devices.commands.SetModes": {
-            "updateModeSettings.input source": "MQTT_COMMAND_TOPIC"
-          }
+          "action.devices.commands.GetCameraStream": {}
         },
         "state": {
-          "currentModeSettings.input source": {
-            "topic": "MQTT_STATE_TOPIC",
+          "cameraStreamAccessUrl": {
+            "topic": null,
             "googleType": "string",
             "valueMap": [
               {
-                "mqtt": "Watch TV",
-                "type": "value",
-                "google": "tv"
-              },
+                "type": "static",
+                "google": "https://stream1.vossaskyen.no/bt/Danmarksplass.stream/playlist.m3u8"
+              }
+            ]
+          },
+          "cameraStreamReceiverAppId": {
+            "topic": null,
+            "googleType": "string",
+            "valueMap": [
               {
-                "mqtt": "Watch Chromecast",
-                "type": "value",
-                "google": "media player"
-              },
+                "type": "static",
+                "google": null
+              }
+            ]
+          },
+          "cameraStreamAuthToken": {
+            "topic": null,
+            "googleType": "string",
+            "valueMap": [
               {
-                "mqtt": "Watch Roku",
-                "type": "value",
-                "google": "game console"
-              },
-              {
-                "mqtt": "PowerOff",
-                "type": "value",
-                "google": "off"
+                "type": "static",
+                "google": null
               }
             ]
           }
@@ -1848,139 +1558,122 @@
     ],
     "customData": null
   },
-  "securitySystem": {
-    "id": "securitySystem",
-    "type": "action.devices.types.SECURITYSYSTEM",
+  "bedroom/thermostat": {
+    "id": "bedroom/thermostat",
+    "type": "action.devices.types.THERMOSTAT",
     "disabled": false,
     "willReportState": true,
-    "roomHint": "Living room",
+    "roomHint": "Bedroom",
     "name": {
       "defaultNames": [],
-      "name": "Security system",
+      "name": "Thermostat [Bedroom]",
       "nicknames": []
     },
     "deviceInfo": {
       "manufacturer": "openHome",
-      "model": "0",
-      "hwVersion": "0",
-      "swVersion": "0"
+      "model": "0.1",
+      "hwVersion": "0.1",
+      "swVersion": "0.1"
     },
     "traits": [
       {
-        "trait": "action.devices.traits.ArmDisarm",
+        "trait": "action.devices.traits.TemperatureSetting",
         "attributes": {
-          "availableArmLevels": {
-            "levels": [
-              {
-                "level_name": "Disarmed",
-                "level_values": [
-                  {
-                    "level_synonym": [
-                      "no security",
-                      "level 0",
-                      "SL0",
-                      "disarmed"
-                    ],
-                    "lang": "en"
-                  }
-                ]
-              },
-              {
-                "level_name": "Armed-shell",
-                "level_values": [
-                  {
-                    "level_synonym": [
-                      "low security",
-                      "shell",
-                      "level 1",
-                      "SL1"
-                    ],
-                    "lang": "en"
-                  }
-                ]
-              },
-              {
-                "level_name": "Armed-night",
-                "level_values": [
-                  {
-                    "level_synonym": [
-                      "medium security",
-                      "night",
-                      "level 2",
-                      "SL2",
-                      "sleep"
-                    ],
-                    "lang": "en"
-                  }
-                ]
-              },
-              {
-                "level_name": "Armed-away",
-                "level_values": [
-                  {
-                    "level_synonym": [
-                      "high security",
-                      "away",
-                      "level 3",
-                      "SL3"
-                    ],
-                    "lang": "en"
-                  }
-                ]
-              }
-            ],
-            "ordered": false
-          }
+          "availableThermostatModes": "off,heat,cool,on,heatcool,auto,fan-only,purifier,eco,dry",
+          "thermostatTemperatureUnit": "C"
         },
         "commands": {
-          "action.devices.commands.ArmDisarm": {
-            "arm": "securitySystem/arm/set",
-            "cancel": "securitySystem/cancel/set",
-            "armLevel": "securitySystem/armLevel/set"
+          "action.devices.commands.ThermostatTemperatureSetpoint": {
+            "thermostatTemperatureSetpoint": "bedroom/thermostat/thermostatTemperatureSetpoint/set"
+          },
+          "action.devices.commands.ThermostatTemperatureSetRange": {
+            "thermostatTemperatureSetpointHigh": "bedroom/thermostat/thermostatTemperatureSetpointHigh/set",
+            "thermostatTemperatureSetpointLow": "bedroom/thermostat/thermostatTemperatureSetpointLow/set"
+          },
+          "action.devices.commands.ThermostatSetMode": {
+            "thermostatMode": "bedroom/thermostat/thermostatMode/set"
+          },
+          "action.devices.commands.TemperatureRelative": {
+            "thermostatTemperatureRelativeDegree": "bedroom/thermostat/thermostatTemperatureRelativeDegree/set",
+            "thermostatTemperatureRelativeWeight": "bedroom/thermostat/thermostatTemperatureRelativeWeight/set"
           }
         },
         "state": {
-          "isArmed": {
-            "topic": "securitySystem/isArmed",
-            "googleType": "bool",
-            "valueMap": null
-          },
-          "currentArmLevel": {
-            "topic": "securitySystem/armLevel",
+          "thermostatMode": {
+            "topic": "bedroom/thermostat/thermostatMode",
             "googleType": "string",
             "valueMap": []
           },
-          "exitAllowance": {
-            "topic": "securitySystem/exitAllowance",
+          "thermostatTemperatureSetpoint": {
+            "topic": "bedroom/thermostat/thermostatTemperatureSetpoint",
+            "googleType": "numeric",
+            "valueMap": null
+          },
+          "thermostatTemperatureAmbient": {
+            "topic": "bedroom/thermostat/thermostatTemperatureAmbient",
+            "googleType": "numeric",
+            "valueMap": null
+          },
+          "thermostatTemperatureSetpointHigh": {
+            "topic": "bedroom/thermostat/thermostatTemperatureSetpointHigh",
+            "googleType": "numeric",
+            "valueMap": null
+          },
+          "thermostatTemperatureSetpointLow": {
+            "topic": "bedroom/thermostat/thermostatTemperatureSetpointLow",
+            "googleType": "numeric",
+            "valueMap": null
+          },
+          "thermostatHumidityAmbient": {
+            "topic": "bedroom/thermostat/thermostatHumidityAmbient",
             "googleType": "numeric",
             "valueMap": null
           }
         }
-      },
+      }
+    ],
+    "customData": null
+  },
+  "bedroom/bedroomDoor": {
+    "id": "bedroom/bedroomDoor",
+    "type": "action.devices.types.DOOR",
+    "disabled": false,
+    "willReportState": true,
+    "roomHint": "Bedroom",
+    "name": {
+      "defaultNames": [],
+      "name": "Bedroom door",
+      "nicknames": []
+    },
+    "deviceInfo": null,
+    "traits": [
       {
-        "trait": "action.devices.traits.StatusReport",
-        "attributes": {},
+        "trait": "action.devices.traits.OpenClose",
+        "attributes": {
+          "openDirection": [
+            "LEFT",
+            "RIGHT"
+          ],
+          "discreteOnlyOpenClose": true,
+          "queryOnlyOpenClose": true
+        },
         "commands": {},
         "state": {
-          "currentStatusReport.[0].blocking": {
-            "topic": "securitySystem/blocking",
-            "googleType": "bool",
-            "valueMap": null
-          },
-          "currentStatusReport.[0].deviceTarget": {
-            "topic": "securitySystem/deviceTarget",
-            "googleType": "string",
-            "valueMap": []
-          },
-          "currentStatusReport.[0].priority": {
-            "topic": "securitySystem/priority",
+          "openPercent": {
+            "topic": "bedroom/bedroomDoor/status",
             "googleType": "numeric",
-            "valueMap": null
-          },
-          "currentStatusReport.[0].statusCode": {
-            "topic": "securitySystem/statusCode",
-            "googleType": "string",
-            "valueMap": []
+            "valueMap": [
+              {
+                "mqtt": "OPEN",
+                "type": "value",
+                "google": 100
+              },
+              {
+                "mqtt": "CLOSED",
+                "type": "value",
+                "google": 0
+              }
+            ]
           }
         }
       }
@@ -2236,140 +1929,219 @@
     ],
     "customData": null
   },
-  "bedroom/thermostat": {
-    "id": "bedroom/thermostat",
-    "type": "action.devices.types.THERMOSTAT",
+  "bedroom/smokeDetector": {
+    "id": "bedroom/smokeDetector",
+    "type": "action.devices.types.SMOKE_DETECTOR",
     "disabled": false,
     "willReportState": true,
     "roomHint": "Bedroom",
     "name": {
       "defaultNames": [],
-      "name": "Thermostat [Bedroom]",
+      "name": "Smoke detector",
       "nicknames": []
     },
-    "deviceInfo": {
-      "manufacturer": "openHome",
-      "model": "0.1",
-      "hwVersion": "0.1",
-      "swVersion": "0.1"
-    },
+    "deviceInfo": null,
     "traits": [
       {
-        "trait": "action.devices.traits.TemperatureSetting",
+        "trait": "action.devices.traits.SensorState",
         "attributes": {
-          "availableThermostatModes": "off,heat,cool,on,heatcool,auto,fan-only,purifier,eco,dry",
-          "thermostatTemperatureUnit": "C"
+          "sensorStatesSupported": [
+            {
+              "name": "SmokeLevel",
+              "numericCapabilities": {
+                "rawValueUnit": "PARTS_PER_MILLION"
+              },
+              "descriptiveCapabilities": {
+                "availableStates": [
+                  "smoke detected",
+                  "no smoke detected"
+                ]
+              }
+            }
+          ]
         },
-        "commands": {
-          "action.devices.commands.ThermostatTemperatureSetpoint": {
-            "thermostatTemperatureSetpoint": "bedroom/thermostat/thermostatTemperatureSetpoint/set"
-          },
-          "action.devices.commands.ThermostatTemperatureSetRange": {
-            "thermostatTemperatureSetpointHigh": "bedroom/thermostat/thermostatTemperatureSetpointHigh/set",
-            "thermostatTemperatureSetpointLow": "bedroom/thermostat/thermostatTemperatureSetpointLow/set"
-          },
-          "action.devices.commands.ThermostatSetMode": {
-            "thermostatMode": "bedroom/thermostat/thermostatMode/set"
-          },
-          "action.devices.commands.TemperatureRelative": {
-            "thermostatTemperatureRelativeDegree": "bedroom/thermostat/thermostatTemperatureRelativeDegree/set",
-            "thermostatTemperatureRelativeWeight": "bedroom/thermostat/thermostatTemperatureRelativeWeight/set"
-          }
-        },
+        "commands": {},
         "state": {
-          "thermostatMode": {
-            "topic": "bedroom/thermostat/thermostatMode",
+          "currentSensorStateData.[0].name": {
+            "topic": null,
+            "googleType": "string",
+            "valueMap": [
+              {
+                "type": "static",
+                "google": "SmokeLevel"
+              }
+            ]
+          },
+          "currentSensorStateData.[0].currentSensorState": {
+            "topic": "bedroom/smokeDetector/sensorState",
             "googleType": "string",
             "valueMap": []
-          },
-          "thermostatTemperatureSetpoint": {
-            "topic": "bedroom/thermostat/thermostatTemperatureSetpoint",
-            "googleType": "numeric",
-            "valueMap": null
-          },
-          "thermostatTemperatureAmbient": {
-            "topic": "bedroom/thermostat/thermostatTemperatureAmbient",
-            "googleType": "numeric",
-            "valueMap": null
-          },
-          "thermostatTemperatureSetpointHigh": {
-            "topic": "bedroom/thermostat/thermostatTemperatureSetpointHigh",
-            "googleType": "numeric",
-            "valueMap": null
-          },
-          "thermostatTemperatureSetpointLow": {
-            "topic": "bedroom/thermostat/thermostatTemperatureSetpointLow",
-            "googleType": "numeric",
-            "valueMap": null
-          },
-          "thermostatHumidityAmbient": {
-            "topic": "bedroom/thermostat/thermostatHumidityAmbient",
-            "googleType": "numeric",
-            "valueMap": null
           }
         }
       }
     ],
     "customData": null
   },
-  "other/camera/danmarksplass": {
-    "id": "other/camera/danmarksplass",
-    "type": "action.devices.types.CAMERA",
+  "livingroom/buttShaker": {
+    "id": "livingroom/buttShaker",
+    "type": "action.devices.types.SPEAKER",
     "disabled": false,
     "willReportState": true,
-    "roomHint": "Others",
+    "roomHint": "Living room",
     "name": {
       "defaultNames": [],
-      "name": "Danmarksplass",
+      "name": "Buttshaker",
+      "nicknames": []
+    },
+    "deviceInfo": null,
+    "traits": [
+      {
+        "trait": "action.devices.traits.OnOff",
+        "attributes": {},
+        "commands": {
+          "action.devices.commands.OnOff": {
+            "on": "livingroom/buttShaker/power/set"
+          }
+        },
+        "state": {
+          "on": {
+            "topic": "livingroom/buttShaker/power",
+            "googleType": "bool",
+            "valueMap": [
+              {
+                "mqtt": "ON",
+                "type": "value",
+                "google": true
+              },
+              {
+                "mqtt": "OFF",
+                "type": "value",
+                "google": false
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "customData": null
+  },
+  "bedroom/airFreshener": {
+    "id": "bedroom/airFreshener",
+    "type": "action.devices.types.AIRFRESHENER",
+    "disabled": false,
+    "willReportState": true,
+    "roomHint": "Bedroom",
+    "name": {
+      "defaultNames": [],
+      "name": "Air freshener",
       "nicknames": []
     },
     "deviceInfo": {
-      "manufacturer": "Some Company",
-      "model": "Some Model",
+      "manufacturer": "HomeAutio",
+      "model": "DIY",
       "hwVersion": "1.0",
       "swVersion": "1.0"
     },
     "traits": [
       {
-        "trait": "action.devices.traits.CameraStream",
-        "attributes": {
-          "cameraStreamSupportedProtocols": [
-            "hls"
-          ],
-          "cameraStreamNeedAuthToken": false,
-          "cameraStreamNeedDrmEncryption": false
-        },
+        "trait": "action.devices.traits.OnOff",
+        "attributes": {},
         "commands": {
-          "action.devices.commands.GetCameraStream": {}
+          "action.devices.commands.OnOff": {
+            "on": "cmnd/tasmota_2/POWER"
+          }
         },
         "state": {
-          "cameraStreamAccessUrl": {
-            "topic": null,
-            "googleType": "string",
+          "on": {
+            "topic": "cmnd/tasmota_2/POWER",
+            "googleType": "bool",
             "valueMap": [
               {
-                "type": "static",
-                "google": "https://stream1.vossaskyen.no/bt/Danmarksplass.stream/playlist.m3u8"
+                "mqtt": "on",
+                "type": "value",
+                "google": true
+              },
+              {
+                "mqtt": "off",
+                "type": "value",
+                "google": false
               }
             ]
-          },
-          "cameraStreamReceiverAppId": {
-            "topic": null,
+          }
+        }
+      },
+      {
+        "trait": "action.devices.traits.Modes",
+        "attributes": {
+          "availableModes": [
+            {
+              "name": "input source",
+              "name_values": [
+                {
+                  "name_synonym": [
+                    "activity"
+                  ],
+                  "lang": "en"
+                }
+              ],
+              "settings": [
+                {
+                  "setting_name": "tv",
+                  "setting_values": [
+                    {
+                      "setting_synonym": [
+                        "tv",
+                        "television"
+                      ],
+                      "lang": "en"
+                    }
+                  ]
+                },
+                {
+                  "setting_name": "meda player",
+                  "setting_values": [
+                    {
+                      "setting_synonym": [
+                        "chromecast"
+                      ],
+                      "lang": "en"
+                    }
+                  ]
+                }
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        "commands": {
+          "action.devices.commands.SetModes": {
+            "updateModeSettings.input source": "MQTT_COMMAND_TOPIC"
+          }
+        },
+        "state": {
+          "currentModeSettings.input source": {
+            "topic": "MQTT_STATE_TOPIC",
             "googleType": "string",
             "valueMap": [
               {
-                "type": "static",
-                "google": null
-              }
-            ]
-          },
-          "cameraStreamAuthToken": {
-            "topic": null,
-            "googleType": "string",
-            "valueMap": [
+                "mqtt": "Watch TV",
+                "type": "value",
+                "google": "tv"
+              },
               {
-                "type": "static",
-                "google": null
+                "mqtt": "Watch Chromecast",
+                "type": "value",
+                "google": "media player"
+              },
+              {
+                "mqtt": "Watch Roku",
+                "type": "value",
+                "google": "game console"
+              },
+              {
+                "mqtt": "PowerOff",
+                "type": "value",
+                "google": "off"
               }
             ]
           }
@@ -2449,92 +2221,200 @@
     ],
     "customData": null
   },
-  "bedroom/bedroomDoor": {
-    "id": "bedroom/bedroomDoor",
-    "type": "action.devices.types.DOOR",
+  "securitySystem": {
+    "id": "securitySystem",
+    "type": "action.devices.types.SECURITYSYSTEM",
     "disabled": false,
     "willReportState": true,
-    "roomHint": "Bedroom",
+    "roomHint": "Living room",
     "name": {
       "defaultNames": [],
-      "name": "Bedroom door",
+      "name": "Security system",
       "nicknames": []
     },
-    "deviceInfo": null,
+    "deviceInfo": {
+      "manufacturer": "openHome",
+      "model": "0",
+      "hwVersion": "0",
+      "swVersion": "0"
+    },
     "traits": [
       {
-        "trait": "action.devices.traits.OpenClose",
+        "trait": "action.devices.traits.ArmDisarm",
         "attributes": {
-          "openDirection": [
-            "LEFT",
-            "RIGHT"
-          ],
-          "discreteOnlyOpenClose": true,
-          "queryOnlyOpenClose": true
-        },
-        "commands": {},
-        "state": {
-          "openPercent": {
-            "topic": "bedroom/bedroomDoor/status",
-            "googleType": "numeric",
-            "valueMap": [
+          "availableArmLevels": {
+            "levels": [
               {
-                "mqtt": "OPEN",
-                "type": "value",
-                "google": 100
+                "level_name": "Disarmed",
+                "level_values": [
+                  {
+                    "level_synonym": [
+                      "no security",
+                      "level 0",
+                      "SL0",
+                      "disarmed"
+                    ],
+                    "lang": "en"
+                  }
+                ]
               },
               {
-                "mqtt": "CLOSED",
-                "type": "value",
-                "google": 0
+                "level_name": "Armed-shell",
+                "level_values": [
+                  {
+                    "level_synonym": [
+                      "low security",
+                      "shell",
+                      "level 1",
+                      "SL1"
+                    ],
+                    "lang": "en"
+                  }
+                ]
+              },
+              {
+                "level_name": "Armed-night",
+                "level_values": [
+                  {
+                    "level_synonym": [
+                      "medium security",
+                      "night",
+                      "level 2",
+                      "SL2",
+                      "sleep"
+                    ],
+                    "lang": "en"
+                  }
+                ]
+              },
+              {
+                "level_name": "Armed-away",
+                "level_values": [
+                  {
+                    "level_synonym": [
+                      "high security",
+                      "away",
+                      "level 3",
+                      "SL3"
+                    ],
+                    "lang": "en"
+                  }
+                ]
               }
-            ]
+            ],
+            "ordered": false
+          }
+        },
+        "commands": {
+          "action.devices.commands.ArmDisarm": {
+            "arm": "securitySystem/arm/set",
+            "cancel": "securitySystem/cancel/set",
+            "armLevel": "securitySystem/armLevel/set"
+          }
+        },
+        "state": {
+          "isArmed": {
+            "topic": "securitySystem/isArmed",
+            "googleType": "bool",
+            "valueMap": null
+          },
+          "currentArmLevel": {
+            "topic": "securitySystem/armLevel",
+            "googleType": "string",
+            "valueMap": []
+          },
+          "exitAllowance": {
+            "topic": "securitySystem/exitAllowance",
+            "googleType": "numeric",
+            "valueMap": null
+          }
+        }
+      },
+      {
+        "trait": "action.devices.traits.StatusReport",
+        "attributes": {},
+        "commands": {},
+        "state": {
+          "currentStatusReport.[0].blocking": {
+            "topic": "securitySystem/blocking",
+            "googleType": "bool",
+            "valueMap": null
+          },
+          "currentStatusReport.[0].deviceTarget": {
+            "topic": "securitySystem/deviceTarget",
+            "googleType": "string",
+            "valueMap": []
+          },
+          "currentStatusReport.[0].priority": {
+            "topic": "securitySystem/priority",
+            "googleType": "numeric",
+            "valueMap": null
+          },
+          "currentStatusReport.[0].statusCode": {
+            "topic": "securitySystem/statusCode",
+            "googleType": "string",
+            "valueMap": []
           }
         }
       }
     ],
     "customData": null
   },
-  "hall/mainDoor": {
-    "id": "hall/mainDoor",
-    "type": "action.devices.types.DOOR",
+  "livingroom/amplifier": {
+    "id": "livingroom/amplifier",
+    "type": "action.devices.types.AUDIO_VIDEO_RECEIVER",
     "disabled": false,
     "willReportState": true,
-    "roomHint": "Hall",
+    "roomHint": "Living room",
     "name": {
       "defaultNames": [],
-      "name": "Main door",
+      "name": "Amplifier",
       "nicknames": []
     },
     "deviceInfo": null,
     "traits": [
       {
-        "trait": "action.devices.traits.OpenClose",
+        "trait": "action.devices.traits.InputSelector",
         "attributes": {
-          "openDirection": [
-            "LEFT",
-            "RIGHT"
+          "availableInputs": [
+            {
+              "key": "MPLAY",
+              "names": [
+                {
+                  "lang": "en",
+                  "name_synonym": [
+                    "hdmi 1",
+                    "1st hdmi",
+                    "kodi"
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "AUX1",
+              "names": [
+                {
+                  "lang": "en",
+                  "name_synonym": [
+                    "aux 1",
+                    "audio"
+                  ]
+                }
+              ]
+            }
           ],
-          "discreteOnlyOpenClose": true,
-          "queryOnlyOpenClose": true
+          "orderedInputs": true
         },
-        "commands": {},
+        "commands": {
+          "action.devices.commands.SetInput": {
+            "newInput": "livingroom/amplifier/input/set"
+          }
+        },
         "state": {
-          "openPercent": {
-            "topic": "hall/mainDoor/status",
-            "googleType": "numeric",
-            "valueMap": [
-              {
-                "mqtt": "OPEN",
-                "type": "value",
-                "google": 100
-              },
-              {
-                "mqtt": "CLOSED",
-                "type": "value",
-                "google": 0
-              }
-            ]
+          "currentInput": {
+            "topic": "livingroom/amplifier/input",
+            "googleType": "string",
+            "valueMap": null
           }
         }
       }
@@ -2666,15 +2546,15 @@
     ],
     "customData": null
   },
-  "livingroom/balconyDoor": {
-    "id": "livingroom/balconyDoor",
+  "hall/mainDoor": {
+    "id": "hall/mainDoor",
     "type": "action.devices.types.DOOR",
     "disabled": false,
     "willReportState": true,
-    "roomHint": "Living room",
+    "roomHint": "Hall",
     "name": {
       "defaultNames": [],
-      "name": "Balcony door",
+      "name": "Main door",
       "nicknames": []
     },
     "deviceInfo": null,
@@ -2692,7 +2572,7 @@
         "commands": {},
         "state": {
           "openPercent": {
-            "topic": "livingroom/balconyDoor/status",
+            "topic": "hall/mainDoor/status",
             "googleType": "numeric",
             "valueMap": [
               {
@@ -2712,15 +2592,15 @@
     ],
     "customData": null
   },
-  "bedroom/smokeDetector": {
-    "id": "bedroom/smokeDetector",
+  "kitchen/smokeDetector": {
+    "id": "kitchen/smokeDetector",
     "type": "action.devices.types.SMOKE_DETECTOR",
     "disabled": false,
     "willReportState": true,
-    "roomHint": "Bedroom",
+    "roomHint": "Kitchen",
     "name": {
       "defaultNames": [],
-      "name": "Smoke detector",
+      "name": "Smoke sensor",
       "nicknames": []
     },
     "deviceInfo": null,
@@ -2756,9 +2636,129 @@
             ]
           },
           "currentSensorStateData.[0].currentSensorState": {
-            "topic": "bedroom/smokeDetector/sensorState",
+            "topic": "kitchen/smokeDetector/sensorState",
             "googleType": "string",
             "valueMap": []
+          }
+        }
+      }
+    ],
+    "customData": null
+  },
+  "bedroom/ac": {
+    "id": "bedroom/ac",
+    "type": "action.devices.types.AC_UNIT",
+    "disabled": false,
+    "willReportState": true,
+    "roomHint": "Bedroom",
+    "name": {
+      "defaultNames": [],
+      "name": "Air conditioning",
+      "nicknames": []
+    },
+    "deviceInfo": null,
+    "traits": [
+      {
+        "trait": "action.devices.traits.OnOff",
+        "attributes": null,
+        "commands": {
+          "action.devices.commands.OnOff": {
+            "on": "MQTT_COMMAND_TOPIC"
+          }
+        },
+        "state": {
+          "on": {
+            "topic": "MQTT_STATE_TOPIC",
+            "googleType": "bool",
+            "valueMap": [
+              {
+                "mqtt": "on",
+                "type": "value",
+                "google": true
+              },
+              {
+                "mqtt": "off",
+                "type": "value",
+                "google": false
+              }
+            ]
+          }
+        }
+      },
+      {
+        "trait": "action.devices.traits.TemperatureSetting",
+        "attributes": {
+          "availableThermostatModes": "off,heat,cool,on",
+          "thermostatTemperatureUnit": "C",
+          "commandOnlyTemperatureSetting": true
+        },
+        "commands": {
+          "action.devices.commands.ThermostatTemperatureSetpoint": {
+            "thermostatTemperatureSetpoint": "MQTT_COMMAND_TOPIC"
+          },
+          "action.devices.commands.ThermostatTemperatureSetRange": {
+            "thermostatTemperatureSetpointHigh": "MQTT_COMMAND_TOPIC",
+            "thermostatTemperatureSetpointLow": "MQTT_COMMAND_TOPIC"
+          },
+          "action.devices.commands.ThermostatSetMode": {
+            "thermostatMode": "MQTT_COMMAND_TOPIC"
+          }
+        },
+        "state": {}
+      },
+      {
+        "trait": "action.devices.traits.FanSpeed",
+        "attributes": {
+          "availableFanSpeeds": {
+            "speeds": [
+              {
+                "speed_name": "Low",
+                "speed_values": [
+                  {
+                    "speed_synonym": [
+                      "low"
+                    ],
+                    "lang": "en"
+                  }
+                ]
+              },
+              {
+                "speed_name": "High",
+                "speed_values": [
+                  {
+                    "speed_synonym": [
+                      "high"
+                    ],
+                    "lang": "en"
+                  }
+                ]
+              }
+            ],
+            "ordered": true
+          },
+          "reversible": false
+        },
+        "commands": {
+          "action.devices.commands.SetFanSpeed": {
+            "fanSpeed": "MQTT_COMMAND_TOPIC"
+          }
+        },
+        "state": {
+          "currentFanSpeedSetting": {
+            "topic": "MQTT_STATE_TOPIC",
+            "googleType": "string",
+            "valueMap": [
+              {
+                "mqtt": "1",
+                "type": "value",
+                "google": "Low"
+              },
+              {
+                "mqtt": "4",
+                "type": "value",
+                "google": "High"
+              }
+            ]
           }
         }
       }
