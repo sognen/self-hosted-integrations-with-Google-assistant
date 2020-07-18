@@ -15,8 +15,13 @@ Allows Google Assistant to control Kodi, e.g.,
 
 * HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
 * MQTT broker
-* Node-red - https://www.nodered.org
+* Node-red - https://www.nodered.org (optional)
 * Kodi - https://www.kodi.tv or any other mediaplayer that can be controlled with MQTT.
+
+
+### Hardware needed:
+* A device that can run Kodi
+* A device that can run HomeAutio, MQTT broker and Node-red. You may run these and Kodi on the same device.
 
 ### Setup instructions:
 
@@ -32,12 +37,19 @@ Step 2
 Note: the googleDevices.json file containts all my devices You may only be interessted in /ivingroom/kodi. 
 
 Step 3
-* Import nodered.json into your nodred
-* The following nodes need to be installed and configured: node-red-contrib-kodi, node-red-contrib-mqtt-broker
+This step can be skipped if you already have a bridge between Kodi and your MQTT broker.
+
+* Import nodered.json into your node-red
+* Install the following nodes: 
+  - node-red-contrib-kodi 
+  - node-red-contrib-mqtt-broker
+  - node-red-contrib-openhab2 (optional)
 
 Step 4
 
-Step 5 Say "sync my devices" to your Google Assistant device.
+Step 5 
+Say "sync my devices" to your Google Assistant device. 
+You should now be able to control your Kodi using your voice.
 
 ### Todo:
 
