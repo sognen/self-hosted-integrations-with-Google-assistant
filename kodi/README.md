@@ -60,3 +60,4 @@ You should now be able to control your Kodi using your voice.
 * Document setup
 * Complete definition of Kodi
 * Complete node-red flows
+* Develop dialogflow movie agent
