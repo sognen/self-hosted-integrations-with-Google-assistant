@@ -22,7 +22,7 @@
         "attributes": {
           "availableModes": [
             {
-              "name": "input source",
+              "name": "Input source",
               "name_values": [
                 {
                   "name_synonym": [
@@ -33,7 +33,7 @@
               ],
               "settings": [
                 {
-                  "setting_name": "kodi",
+                  "setting_name": "Kodi",
                   "setting_values": [
                     {
                       "setting_synonym": [
@@ -45,7 +45,7 @@
                   ]
                 },
                 {
-                  "setting_name": "video player",
+                  "setting_name": "Video player",
                   "setting_values": [
                     {
                       "setting_synonym": [
@@ -57,7 +57,7 @@
                   ]
                 },
                 {
-                  "setting_name": "audio player",
+                  "setting_name": "Audio player",
                   "setting_values": [
                     {
                       "setting_synonym": [
@@ -1342,6 +1342,17 @@
                 {
                   "name_synonym": [
                     "music"
+                  ],
+                  "lang": "en"
+                }
+              ]
+            },
+            {
+              "key": "videos",
+              "names": [
+                {
+                  "name_synonym": [
+                    "videos"
                   ],
                   "lang": "en"
                 }
