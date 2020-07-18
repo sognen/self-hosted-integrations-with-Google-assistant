@@ -1,0 +1,42 @@
+version: "2.2"
+services:
+
+ 
+  node-red:
+    image: nodered/node-red:latest
+    container_name: node-red
+    environment:
+      - TZ=Asia/Singapore
+    depends_on:
+      openhab:
+        condition: service_healthy
+      machine-learning:
+        condition: service_healthy
+    user: "1000:1000"
+    group_add:
+      - dialout
+    ports:
+      - "1880:1880"
+    devices:
+      - "/dev/ttyS0"
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+      - ~/docker/node-red:/data
+    restart: always
+ 
+  homeautio:
+      container_name: homeautio
+      image: i8beef/homeautio.mqtt.googlehome:latest
+      restart: unless-stopped
+      user: "1000"
+      depends_on:
+        - "openhab"      
+      ports:
+        - "5000:5000"
+      volumes:
+        - "~/docker/homeautio/config:/app/config"
+        - "~/docker/homeautio/logs:/app/logs"
+      environment:
+        - ASPNETCORE_PATHBASE=/google/home
+        - TZ=Asia/Singapore
