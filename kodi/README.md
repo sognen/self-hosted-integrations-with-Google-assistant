@@ -16,7 +16,7 @@ Allows Google Assistant to control Kodi, e.g.,
 * HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
 * MQTT broker
 * Node-red - https://www.nodered.org
-* Kodi - https://www.kodi.tv
+* Kodi - https://www.kodi.tv or any other mediaplayer that can be controlled with MQTT.
 
 ### Setup instructions:
 
@@ -29,6 +29,7 @@ Step 1
 Step 2
 
 * Copy googleDevices.json into folder HomeAutio config folder
+Note: the googleDevices.json file containts all my devices You may only be interessted in /ivingroom/kodi. 
 
 Step 3
 * Import nodered.json into your nodred
