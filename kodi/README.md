@@ -29,6 +29,7 @@ Step 1
 Step 2
 
 * Copy googleDevices.json into folder HomeAutio config folder
+Note: the googleDevices.json file containts all my devices You may only be interessted in /ivingroom/kodi. 
 
 Step 3
 * Import nodered.json into your nodred
