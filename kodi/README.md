@@ -45,6 +45,7 @@ Install Node-red found here https://www.nodered.org
 Note: all three above is best installed as docker containers.
 
 Step 4
+- Copy googleDevices.json into folder HomeAutio config folder
 
 
 
@@ -52,7 +53,11 @@ Step 5
 
 
 
+Step 6
 
+
+Step 7
+Say "sync my devices" to your Google Assistant device.
 
 
 
