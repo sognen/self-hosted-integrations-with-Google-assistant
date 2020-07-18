@@ -16,7 +16,7 @@ Allows Google Assistant to control Kodi, e.g.,
 * HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
 * MQTT broker
 * Node-red - https://www.nodered.org
-* Kodi - https://www.kodi.tv
+* Kodi - https://www.kodi.tv or any other mediaplayer that can be controlled with MQTT.
 
 ### Setup instructions:
 
