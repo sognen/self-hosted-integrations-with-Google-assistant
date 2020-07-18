@@ -35,28 +35,24 @@ Allows Google Assistant to control Kodi, e.g.,
 
 ### Setup instructions:
 Step 1 
-Install the excellent https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome Detailed instruction can be found in the wiki.
-
-Step 2
-Install a MQTT broker, e.g., Eclipse Mosquitto.
-
-Step 3
-Install Node-red found here https://www.nodered.org
+- Install the excellent https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome Detailed instruction can be found in the wiki.
+- Install a MQTT broker, e.g., Eclipse Mosquitto.
+- Install Node-red found here https://www.nodered.org
 Note: all three above is best installed as docker containers.
 
-Step 4
+Step 2
 - Copy googleDevices.json into folder HomeAutio config folder
 
 
 
+Step 3
+
+
+
+Step 4
+
+
 Step 5
-
-
-
-Step 6
-
-
-Step 7
 Say "sync my devices" to your Google Assistant device.
 
 
