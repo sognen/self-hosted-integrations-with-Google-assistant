@@ -1,5 +1,24 @@
 [
 	{
+		"id": "1b1d11d8.4f449e",
+		"type": "template",
+		"z": "d7cff51f.3b5e88",
+		"name": "Channel",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"args\": {\n\t\t\"item\": {\n\t\t\t\"channelid\": {{payload}}\n\t\t}\n\t}\n}",
+		"output": "json",
+		"x": 880,
+		"y": 1174,
+		"wires": [
+			[
+				"d9c18053.b05c"
+			]
+		]
+	},
+	{
 		"id": "8b800e1a.24c1f",
 		"type": "kodi-in",
 		"z": "d7cff51f.3b5e88",
@@ -683,25 +702,6 @@
 		]
 	},
 	{
-		"id": "1b1d11d8.4f449e",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Channel",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "handlebars",
-		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"args\": {\n\t\t\"item\": {\n\t\t\t\"channelid\": {{payload}}\n\t\t}\n\t}\n}",
-		"output": "json",
-		"x": 880,
-		"y": 1174,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
 		"id": "eb19e77e.ceb358",
 		"type": "template",
 		"z": "d7cff51f.3b5e88",
@@ -1275,6 +1275,194 @@
 		"x": 600,
 		"y": 80,
 		"wires": []
+	},
+	{
+		"id": "3d3bfabe.b08ca6",
+		"type": "inject",
+		"z": "d7cff51f.3b5e88",
+		"name": "Click here",
+		"props": [
+			{
+				"p": "payload"
+			},
+			{
+				"p": "topic",
+				"vt": "str"
+			}
+		],
+		"repeat": "",
+		"crontab": "",
+		"once": false,
+		"onceDelay": 0.1,
+		"topic": "",
+		"payload": "",
+		"payloadType": "date",
+		"x": 180,
+		"y": 1440,
+		"wires": [
+			[
+				"db35c5e6.7d8878"
+			]
+		]
+	},
+	{
+		"id": "db35c5e6.7d8878",
+		"type": "function",
+		"z": "d7cff51f.3b5e88",
+		"name": "Channels",
+		"func": "var device;\nvar payload;\ndevice = \"http://192.168.1.105:8080/jsonrpc?request=\";\npayload = '{\"jsonrpc\": \"2.0\", \"method\": \"PVR.GetChannels\", \"params\": {\"channelgroupid\": \"alltv\", \"properties\" :[\"uniqueid\"]},\"id\": 1}'\nmsg.url = device;\nmsg.headers={};\nmsg.payload = payload;\nmsg.method = \"POST\";\nreturn msg;\n\n\n\n\n\n",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"x": 320,
+		"y": 1440,
+		"wires": [
+			[
+				"3876a53b.b8d83a"
+			]
+		]
+	},
+	{
+		"id": "7e3b9530.ed771c",
+		"type": "json",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"property": "payload",
+		"action": "",
+		"pretty": false,
+		"x": 612,
+		"y": 1440,
+		"wires": [
+			[
+				"6620dd19.49d724"
+			]
+		]
+	},
+	{
+		"id": "3876a53b.b8d83a",
+		"type": "http request",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"method": "use",
+		"ret": "txt",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 470,
+		"y": 1440,
+		"wires": [
+			[
+				"7e3b9530.ed771c"
+			]
+		]
+	},
+	{
+		"id": "d201f128.c7c22",
+		"type": "template",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "    {\n      \"key\": \"{{payload.uniqueid}}\",\n      \"names\": [\n        \"{{payload.label}}\"\n      ],\n      \"number\": \"{{payload.channelid}}\"\n    }",
+		"output": "json",
+		"x": 870,
+		"y": 1440,
+		"wires": [
+			[
+				"5e2bbdd4.b76c14"
+			]
+		]
+	},
+	{
+		"id": "6620dd19.49d724",
+		"type": "splitter",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"property": "payload.result.channels",
+		"x": 735,
+		"y": 1440,
+		"wires": [
+			[
+				"d201f128.c7c22"
+			]
+		]
+	},
+	{
+		"id": "5e2bbdd4.b76c14",
+		"type": "join",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"mode": "custom",
+		"build": "array",
+		"property": "payload",
+		"propertyType": "msg",
+		"key": "topic",
+		"joiner": "\\n",
+		"joinerType": "str",
+		"accumulate": false,
+		"timeout": "5",
+		"count": "",
+		"reduceRight": false,
+		"reduceExp": "",
+		"reduceInit": "",
+		"reduceInitType": "",
+		"reduceFixup": "",
+		"x": 1002,
+		"y": 1440,
+		"wires": [
+			[
+				"deb9545e.647b28"
+			]
+		]
+	},
+	{
+		"id": "afb30b2f.c13cd8",
+		"type": "file",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"filename": "channels.json",
+		"appendNewline": false,
+		"createDir": false,
+		"overwriteFile": "true",
+		"encoding": "ascii",
+		"x": 1356,
+		"y": 1440,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "deb9545e.647b28",
+		"type": "change",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"rules": [
+			{
+				"t": "move",
+				"p": "payload",
+				"pt": "msg",
+				"to": "payload.availableChannels",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 1164,
+		"y": 1440,
+		"wires": [
+			[
+				"afb30b2f.c13cd8"
+			]
+		]
 	},
 	{
 		"id": "b774da3d.4d57f8",
