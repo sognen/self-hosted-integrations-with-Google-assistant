@@ -75,12 +75,12 @@
         },
         "commands": {
           "action.devices.commands.SetModes": {
-            "updateModeSettings.input source": "livingroom/amplifier/mode/set"
+            "updateModeSettings.input source": "livingroom/kodi/mode/set"
           }
         },
         "state": {
           "currentModeSettings.input source": {
-            "topic": "livingroom/amplifier/mode",
+            "topic": "livingroom/kodi/mode",
             "googleType": "string",
             "valueMap": [
               {
@@ -112,12 +112,12 @@
         "attributes": {},
         "commands": {
           "action.devices.commands.OnOff": {
-            "on": "livingroom/tv/power/set"
+            "on": "livingroom/kodi/power/set"
           }
         },
         "state": {
           "on": {
-            "topic": "livingroom/tv/power",
+            "topic": "livingroom/kodi/power",
             "googleType": "bool",
             "valueMap": [
               {
@@ -144,23 +144,23 @@
         },
         "commands": {
           "action.devices.commands.setVolume": {
-            "volumeLevel": "livingroom/amplifier/volume/set"
+            "volumeLevel": "livingroom/kodi/volume/set"
           },
           "action.devices.commands.mute": {
-            "mute": "livingroom/amplifier/mute/set"
+            "mute": "livingroom/kodi/mute/set"
           },
           "action.devices.commands.volumeRelative": {
-            "relativeSteps": "livingroom/amplifier/relativeVolume/set"
+            "relativeSteps": "livingroom/kodi/relativeVolume/set"
           }
         },
         "state": {
           "currentVolume": {
-            "topic": "livingroom/amplifier/volume",
+            "topic": "livingroom/kodi/volume",
             "googleType": "numeric",
             "valueMap": null
           },
           "isMuted": {
-            "topic": "livingroom/amplifier/mute",
+            "topic": "livingroom/kodi/mute",
             "googleType": "bool",
             "valueMap": [
               {
