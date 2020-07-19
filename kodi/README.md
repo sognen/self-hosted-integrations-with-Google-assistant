@@ -32,7 +32,7 @@ Allows Google Assistant to control Kodi, e.g.,
 
 #### Step 2
 * Copy googleDevices.json into folder HomeAutio config folder
-Note: the googleDevices.json file containts all my devices You may only be interessted in /ivingroom/kodi. 
+Note: the googleDevices.json file containts all my devices You may only be interessted in /livingroom/kodi. 
 
 #### Step 3
 This step can be skipped if you already have a bridge between Kodi and your MQTT broker.
@@ -40,7 +40,7 @@ This step can be skipped if you already have a bridge between Kodi and your MQTT
 * Install the following nodes: 
   - node-red-contrib-kodi 
   - node-red-contrib-mqtt-broker
-  - node-red-contrib-openhab2 (optional)
+
 
 #### Step 4
 Coplete A or B depending on your setup.
@@ -60,4 +60,4 @@ You should now be able to control your Kodi using your voice.
 * Document setup
 * Complete definition of Kodi
 * Complete node-red flows
-* Develop dialogflow movie agent
+* Complete dialogflow movie agent that allows requesting video X to be played
