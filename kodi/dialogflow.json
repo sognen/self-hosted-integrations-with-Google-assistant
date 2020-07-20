@@ -1,108 +1,230 @@
 [
 	{
-		"id": "adc8de1d.ac7a2",
-		"type": "simple-response",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"text": "Okay",
-		"speech": "",
-		"suggestions": "",
-		"x": 1330,
-		"y": 1720,
-		"wires": [
-			[
-				"9e299b2f.e4b198"
-			]
-		]
-	},
-	{
-		"id": "a4202c78.51289",
+		"id": "354e5ecd.3bc0e2",
 		"type": "intent-switch",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "",
-		"x": 270,
-		"y": 1720,
+		"x": 311,
+		"y": 255,
 		"wires": [
 			[
-				"b8a233c.c819ed"
+				"9f9f2357.4df3f",
+				"326dd6d7.22c7ea",
+				"147a0f9c.d71e8",
+				"8d27889c.eb1088",
+				"4c9db14.a01555",
+				"6a3f93bf.10af0c"
 			]
 		]
 	},
 	{
-		"id": "9e299b2f.e4b198",
+		"id": "bb88d972.e0b478",
 		"type": "actions-serialize",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "",
-		"x": 1502,
-		"y": 1720,
+		"x": 1541,
+		"y": 315,
 		"wires": [
 			[
-				"2e1d0e28.fb2b92"
+				"fc78bd93.256b1"
 			]
 		]
 	},
 	{
-		"id": "2e1d0e28.fb2b92",
+		"id": "fc78bd93.256b1",
 		"type": "http response",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "",
 		"statusCode": "",
 		"headers": {},
-		"x": 1632,
-		"y": 1720,
+		"x": 1671,
+		"y": 315,
 		"wires": []
 	},
 	{
-		"id": "f577a08a.91639",
+		"id": "179c3eee.dfae21",
 		"type": "http in",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "",
 		"url": "/dialogflow",
 		"method": "post",
 		"upload": false,
 		"swaggerDoc": "",
-		"x": 100,
-		"y": 1720,
+		"x": 121,
+		"y": 255,
 		"wires": [
 			[
-				"a4202c78.51289"
+				"354e5ecd.3bc0e2",
+				"eddebeec.d776c"
 			]
 		]
 	},
 	{
-		"id": "b8a233c.c819ed",
+		"id": "4c9db14.a01555",
 		"type": "intent",
-		"z": "d7cff51f.3b5e88",
-		"intentName": "play",
-		"x": 435,
-		"y": 1720,
+		"z": "4a5339ba.514388",
+		"intentName": "search-title",
+		"x": 544,
+		"y": 375,
 		"wires": [
 			[
-				"e688abed.1e24c8"
+				"67bdded5.ec9cd"
 			]
 		]
 	},
 	{
-		"id": "712b6a46.5cb154",
+		"id": "147a0f9c.d71e8",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-filter",
+		"x": 544,
+		"y": 255,
+		"wires": [
+			[
+				"dd65bdb.354a94"
+			]
+		]
+	},
+	{
+		"id": "6a3f93bf.10af0c",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-genre",
+		"x": 554,
+		"y": 315,
+		"wires": [
+			[
+				"39f8aa42.570df6"
+			]
+		]
+	},
+	{
+		"id": "730fb62f.bfff88",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1371,
+		"y": 315,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "39f8aa42.570df6",
+		"type": "function",
+		"z": "4a5339ba.514388",
+		"name": "Prepare input",
+		"func": "var genres = msg. payload.queryResult.parameters.genre;\n\nswitch (genres) {\n\tcase \"action\":\n\t\tgenre = 28;\n\t\tbreak;\n\tcase \"adventure\":\n\t\tgenre = 12;\n\t\tbreak;\n\tcase \"animation\":\n\t\tgenre = 16;\t\n\t\tbreak;\n\tcase \"comedy\":\n\t\tgenre = 35;\t\n\t\tbreak;\t\n\tcase \"crime\":\n\t\tgenre = 80;\t\n\t\tbreak;\n\tcase \"documentary\":\n\t\tgenre = 99;\n\t\tbreak;\n\tcase \"drama\":\n\t\tgenre = 18;\n\t\tbreak;\n\tcase \"family\":\n\t\tgenre = 10751;\n\t\tbreak;\n\tcase \"fantasy\":\n\t\tgenre = 14;\n\t\tbreak;\n\tcase \"history\":\n\t\tgenre = 36;\n\t\tbreak;\n\tcase \"horror\":\n\t\tgenre = 27;\n\t\tbreak;\n\tcase \"music\":\n\t\tgenre = 10402;\n\t\tbreak;\n\tcase \"mystery\":\n\t\tgenre = 9648;\n\t\tbreak;\n\tcase \"romance\":\n\t\tgenre = 10749;\n\t\tbreak;\n\tcase \"science fiction\":\n\t\tgenre = 878;\n\t\tbreak;\n\tcase \"tv movie\":\n\t\tgenre = 10770;\n\t\tbreak;\n\tcase \"thriller\":\n\t\tgenre = 53;\n\t\tbreak;\n\tcase \"war\":\n\t\tgenre = 10752;\n\t\tbreak;\n\tcase \"western\":\n\t\tgenre = 37;\n\t\tbreak;\n}\n\nmsg.payload = genre;\nreturn msg;\n",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"x": 774,
+		"y": 315,
+		"wires": [
+			[
+				"187a4262.823f5e"
+			]
+		]
+	},
+	{
+		"id": "8d27889c.eb1088",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "play",
+		"x": 537,
+		"y": 435,
+		"wires": [
+			[
+				"48c2da1.c747124"
+			]
+		]
+	},
+	{
+		"id": "9f9f2357.4df3f",
+		"type": "change",
+		"z": "4a5339ba.514388",
+		"name": "Set device",
+		"rules": [
+			{
+				"t": "set",
+				"p": "player",
+				"pt": "flow",
+				"to": "msg.payload.queryResult.parameters.player",
+				"tot": "msg"
+			},
+			{
+				"t": "change",
+				"p": "player",
+				"pt": "flow",
+				"from": "p1",
+				"fromt": "str",
+				"to": "http://192.168.105",
+				"tot": "str"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 531,
+		"y": 175,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "326dd6d7.22c7ea",
+		"type": "change",
+		"z": "4a5339ba.514388",
+		"name": "Set media",
+		"rules": [
+			{
+				"t": "set",
+				"p": "player",
+				"pt": "flow",
+				"to": "msg.payload.queryResult.parameters.player",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 531,
+		"y": 135,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "6af13526.1c2e3c",
 		"type": "kodi-out",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "",
 		"controller": "b774da3d.4d57f8",
 		"unit_number": "1",
 		"output": "1",
 		"kodicommand": "",
-		"x": 728,
-		"y": 1721,
+		"x": 894,
+		"y": 436,
 		"wires": [
 			[
-				"7a901f8e.86663"
+				"e6656fb1.68d0a"
 			]
 		]
 	},
 	{
-		"id": "e688abed.1e24c8",
+		"id": "48c2da1.c747124",
 		"type": "template",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "Search",
 		"field": "payload",
 		"fieldType": "msg",
@@ -110,18 +232,18 @@
 		"syntax": "mustache",
 		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.openmeta/movies/tmdb/search_term/{{{payload.queryResult.parameters.title}}}/1/\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
 		"output": "json",
-		"x": 589,
-		"y": 1721,
+		"x": 729,
+		"y": 436,
 		"wires": [
 			[
-				"712b6a46.5cb154"
+				"6af13526.1c2e3c"
 			]
 		]
 	},
 	{
-		"id": "7a901f8e.86663",
+		"id": "e6656fb1.68d0a",
 		"type": "template",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "Play",
 		"field": "payload",
 		"fieldType": "msg",
@@ -129,46 +251,126 @@
 		"syntax": "mustache",
 		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"params\": {\n\t\t\"item\": {\n\t\t\t\"file\": \"{{{payload.files.0.file}}}\"\n\t\t}\n\t}\n}",
 		"output": "json",
-		"x": 864,
-		"y": 1720,
+		"x": 1034,
+		"y": 436,
 		"wires": [
 			[
-				"d652b8cc.b41ad8"
+				"151342c4.fdd43d"
 			]
 		]
 	},
 	{
-		"id": "d652b8cc.b41ad8",
+		"id": "eddebeec.d776c",
+		"type": "debug",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"active": true,
+		"tosidebar": true,
+		"console": false,
+		"tostatus": false,
+		"complete": "false",
+		"statusVal": "",
+		"statusType": "auto",
+		"x": 291,
+		"y": 195,
+		"wires": []
+	},
+	{
+		"id": "67bdded5.ec9cd",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.openmeta/movies/tmdb/search_term/{{{payload.queryResult.parameters.title}}}/1/\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
+		"output": "json",
+		"x": 1034,
+		"y": 375,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "187a4262.823f5e",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Browse",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.openmeta/movies/genre/{{{payload}}}}/1/\"\n\t\t\t]\n\n\t}\n}",
+		"output": "json",
+		"x": 1034,
+		"y": 315,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "151342c4.fdd43d",
 		"type": "kodi-out",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "",
 		"controller": "b774da3d.4d57f8",
 		"unit_number": "1",
 		"output": "1",
 		"kodicommand": "",
-		"x": 990,
-		"y": 1720,
+		"x": 1204,
+		"y": 315,
 		"wires": [
 			[
-				"a8a689d6.e456e8"
+				"730fb62f.bfff88"
 			]
 		]
 	},
 	{
-		"id": "a8a689d6.e456e8",
-		"type": "function",
-		"z": "d7cff51f.3b5e88",
-		"name": "Prepare output",
-		"func": "var text = \"Okay\";\n\n\nmsg.simpleresponse = {};\nmsg.simpleresponse.text = text;\nmsg.simpleresponse.title = text;\nreturn msg;\n\n",
+		"id": "dd65bdb.354a94",
+		"type": "switch",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"property": "payload.queryResult.parameters.filter",
+		"propertyType": "msg",
+		"rules": [
+			{
+				"t": "eq",
+				"v": "latest",
+				"vt": "str"
+			}
+		],
+		"checkall": "true",
+		"repair": false,
 		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"x": 1142,
-		"y": 1720,
+		"x": 744,
+		"y": 255,
 		"wires": [
 			[
-				"adc8de1d.ac7a2"
+				"4a286b6c.498bb4"
+			]
+		]
+	},
+	{
+		"id": "4a286b6c.498bb4",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Latest",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.openmeta/movies/trakt/latest_releases\"\n\t\t\t]\n\n\t}\n}\n",
+		"output": "json",
+		"x": 1044,
+		"y": 255,
+		"wires": [
+			[
+				"151342c4.fdd43d"
 			]
 		]
 	},
