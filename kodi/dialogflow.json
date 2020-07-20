@@ -1,0 +1,183 @@
+[
+	{
+		"id": "adc8de1d.ac7a2",
+		"type": "simple-response",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1330,
+		"y": 1720,
+		"wires": [
+			[
+				"9e299b2f.e4b198"
+			]
+		]
+	},
+	{
+		"id": "a4202c78.51289",
+		"type": "intent-switch",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"x": 270,
+		"y": 1720,
+		"wires": [
+			[
+				"b8a233c.c819ed"
+			]
+		]
+	},
+	{
+		"id": "9e299b2f.e4b198",
+		"type": "actions-serialize",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"x": 1502,
+		"y": 1720,
+		"wires": [
+			[
+				"2e1d0e28.fb2b92"
+			]
+		]
+	},
+	{
+		"id": "2e1d0e28.fb2b92",
+		"type": "http response",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"statusCode": "",
+		"headers": {},
+		"x": 1632,
+		"y": 1720,
+		"wires": []
+	},
+	{
+		"id": "f577a08a.91639",
+		"type": "http in",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"url": "/dialogflow",
+		"method": "post",
+		"upload": false,
+		"swaggerDoc": "",
+		"x": 100,
+		"y": 1720,
+		"wires": [
+			[
+				"a4202c78.51289"
+			]
+		]
+	},
+	{
+		"id": "b8a233c.c819ed",
+		"type": "intent",
+		"z": "d7cff51f.3b5e88",
+		"intentName": "play",
+		"x": 435,
+		"y": 1720,
+		"wires": [
+			[
+				"e688abed.1e24c8"
+			]
+		]
+	},
+	{
+		"id": "712b6a46.5cb154",
+		"type": "kodi-out",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 728,
+		"y": 1721,
+		"wires": [
+			[
+				"7a901f8e.86663"
+			]
+		]
+	},
+	{
+		"id": "e688abed.1e24c8",
+		"type": "template",
+		"z": "d7cff51f.3b5e88",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.openmeta/movies/tmdb/search_term/{{{payload.queryResult.parameters.title}}}/1/\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
+		"output": "json",
+		"x": 589,
+		"y": 1721,
+		"wires": [
+			[
+				"712b6a46.5cb154"
+			]
+		]
+	},
+	{
+		"id": "7a901f8e.86663",
+		"type": "template",
+		"z": "d7cff51f.3b5e88",
+		"name": "Play",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"params\": {\n\t\t\"item\": {\n\t\t\t\"file\": \"{{{payload.files.0.file}}}\"\n\t\t}\n\t}\n}",
+		"output": "json",
+		"x": 864,
+		"y": 1720,
+		"wires": [
+			[
+				"d652b8cc.b41ad8"
+			]
+		]
+	},
+	{
+		"id": "d652b8cc.b41ad8",
+		"type": "kodi-out",
+		"z": "d7cff51f.3b5e88",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 990,
+		"y": 1720,
+		"wires": [
+			[
+				"a8a689d6.e456e8"
+			]
+		]
+	},
+	{
+		"id": "a8a689d6.e456e8",
+		"type": "function",
+		"z": "d7cff51f.3b5e88",
+		"name": "Prepare output",
+		"func": "var text = \"Okay\";\n\n\nmsg.simpleresponse = {};\nmsg.simpleresponse.text = text;\nmsg.simpleresponse.title = text;\nreturn msg;\n\n",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"x": 1142,
+		"y": 1720,
+		"wires": [
+			[
+				"adc8de1d.ac7a2"
+			]
+		]
+	},
+	{
+		"id": "b774da3d.4d57f8",
+		"type": "kodi-controller",
+		"z": "",
+		"name": "Living room Kodi",
+		"host": "192.168.1.105",
+		"port": "9090"
+	}
+]
