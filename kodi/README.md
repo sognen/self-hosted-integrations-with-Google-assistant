@@ -24,7 +24,7 @@ Allows Google Assistant to control Kodi, e.g.,
 * A device that can run HomeAutio, MQTT broker and Node-red. You may run these and Kodi on the same device.
 * Audio/video amplifier (optional) - Note: see instructions below on how to control input switching and volume.
 
-### Setup instructions:
+### Setup instructions -  Google Smart Home platform:
 
 #### Step 1
 * Install the excellent https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome Detailed instruction can be found in the wiki.
@@ -57,6 +57,13 @@ To be written.
 Say "sync my devices" to your Google Assistant device. 
 
 You should now be able to control your Kodi using your voice. 
+
+
+### Setup instructions -  Dialogflow
+#### Step 1
+#### Step 2
+#### Step 3
+#### Step 4
 
 ## Todo:
 * Document setup
