@@ -22,7 +22,7 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
-      - ~/docker/node-red:/data
+      - <path>/node-red:/data
     restart: always
  
   homeautio:
@@ -35,8 +35,8 @@ services:
       ports:
         - "5000:5000"
       volumes:
-        - "~/docker/homeautio/config:/app/config"
-        - "~/docker/homeautio/logs:/app/logs"
+        - "<path>/homeautio/config:/app/config"
+        - "<path>/homeautio/logs:/app/logs"
       environment:
         - ASPNETCORE_PATHBASE=/google/home
         - TZ=Asia/Singapore
