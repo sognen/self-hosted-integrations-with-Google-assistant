@@ -11,12 +11,19 @@ Allows Google Assistant to control Kodi, e.g.,
 * Direct play of movie title
 * Display movies by title or actor on the TV
 
+Note: all is under development and not ready for daily usage.
 
 ### Software needed:
 * HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
 * MQTT broker
-* Node-red - https://www.nodered.org (optional)
+* Node-red - https://www.nodered.org (optional) and the following nodes:
+  - node-red-contrib-kodi 
+  - node-red-contrib-mqtt-broker
 * Kodi - https://www.kodi.tv or any other mediaplayer that can be controlled with MQTT.
+  - plugin.video.youtube
+  - plugin.video.seren
+  - plugin.pvr
+  - plugin.audio.spotify
 
 
 ### Hardware needed:
@@ -39,9 +46,7 @@ Note: the googleDevices.json file containts all my devices You may only be inter
 #### Step 3
 This step can be skipped if you already have a bridge between Kodi and your MQTT broker.
 * Import nodered.json into your node-red
-* Install the following nodes: 
-  - node-red-contrib-kodi 
-  - node-red-contrib-mqtt-broker
+* Update ...
 
 
 #### Step 4
