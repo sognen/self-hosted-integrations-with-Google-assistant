@@ -1,0 +1,190 @@
+[
+	{
+		"id": "71a8fa97.43d724",
+		"type": "inject",
+		"z": "126abab.f301a45",
+		"name": "Click here",
+		"props": [
+			{
+				"p": "payload"
+			},
+			{
+				"p": "topic",
+				"vt": "str"
+			}
+		],
+		"repeat": "",
+		"crontab": "",
+		"once": false,
+		"onceDelay": 0.1,
+		"topic": "",
+		"payload": "",
+		"payloadType": "date",
+		"x": 160,
+		"y": 2520,
+		"wires": [
+			[
+				"9f551633.6e9c38"
+			]
+		]
+	},
+	{
+		"id": "9f551633.6e9c38",
+		"type": "function",
+		"z": "126abab.f301a45",
+		"name": "Channels",
+		"func": "var device;\nvar payload;\ndevice = \"http://192.168.1.105:8080/jsonrpc?request=\";\npayload = '{\"jsonrpc\": \"2.0\", \"method\": \"PVR.GetChannels\", \"params\": {\"channelgroupid\": \"alltv\", \"properties\" :[\"uniqueid\"]},\"id\": 1}'\nmsg.url = device;\nmsg.headers={};\nmsg.payload = payload;\nmsg.method = \"POST\";\nreturn msg;\n\n\n\n\n\n",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"x": 300,
+		"y": 2520,
+		"wires": [
+			[
+				"a0f90910.116b48"
+			]
+		]
+	},
+	{
+		"id": "b8753ead.58d56",
+		"type": "json",
+		"z": "126abab.f301a45",
+		"name": "",
+		"property": "payload",
+		"action": "",
+		"pretty": false,
+		"x": 592,
+		"y": 2520,
+		"wires": [
+			[
+				"d10ba21d.44cfc"
+			]
+		]
+	},
+	{
+		"id": "a0f90910.116b48",
+		"type": "http request",
+		"z": "126abab.f301a45",
+		"name": "",
+		"method": "use",
+		"ret": "txt",
+		"paytoqs": "ignore",
+		"url": "",
+		"tls": "",
+		"persist": false,
+		"proxy": "",
+		"authType": "",
+		"x": 450,
+		"y": 2520,
+		"wires": [
+			[
+				"b8753ead.58d56"
+			]
+		]
+	},
+	{
+		"id": "9ea8deff.520a9",
+		"type": "template",
+		"z": "126abab.f301a45",
+		"name": "",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "    {\n      \"key\": \"{{payload.uniqueid}}\",\n      \"names\": [\n        \"{{payload.label}}\"\n      ],\n      \"number\": \"{{payload.channelid}}\"\n    }",
+		"output": "json",
+		"x": 850,
+		"y": 2520,
+		"wires": [
+			[
+				"2ae69acb.609cf6"
+			]
+		]
+	},
+	{
+		"id": "d10ba21d.44cfc",
+		"type": "splitter",
+		"z": "126abab.f301a45",
+		"name": "",
+		"property": "payload.result.channels",
+		"x": 715,
+		"y": 2520,
+		"wires": [
+			[
+				"9ea8deff.520a9"
+			]
+		]
+	},
+	{
+		"id": "2ae69acb.609cf6",
+		"type": "join",
+		"z": "126abab.f301a45",
+		"name": "",
+		"mode": "custom",
+		"build": "array",
+		"property": "payload",
+		"propertyType": "msg",
+		"key": "topic",
+		"joiner": "\\n",
+		"joinerType": "str",
+		"accumulate": false,
+		"timeout": "5",
+		"count": "",
+		"reduceRight": false,
+		"reduceExp": "",
+		"reduceInit": "",
+		"reduceInitType": "",
+		"reduceFixup": "",
+		"x": 982,
+		"y": 2520,
+		"wires": [
+			[
+				"1925c979.d7bdd7"
+			]
+		]
+	},
+	{
+		"id": "8fbb70e9.1cb01",
+		"type": "file",
+		"z": "126abab.f301a45",
+		"name": "",
+		"filename": "channels.json",
+		"appendNewline": false,
+		"createDir": false,
+		"overwriteFile": "true",
+		"encoding": "ascii",
+		"x": 1336,
+		"y": 2520,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "1925c979.d7bdd7",
+		"type": "change",
+		"z": "126abab.f301a45",
+		"name": "",
+		"rules": [
+			{
+				"t": "move",
+				"p": "payload",
+				"pt": "msg",
+				"to": "payload.availableChannels",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 1144,
+		"y": 2520,
+		"wires": [
+			[
+				"8fbb70e9.1cb01"
+			]
+		]
+	}
+]

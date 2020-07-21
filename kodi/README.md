@@ -4,17 +4,13 @@
 
 Allows Google Assistant to control Kodi, e.g.,
 
-* Switch to a tv channel
-* Return to the last/previous channel the user was on.
-* Adjust the current channel by a relative amount.
+* Switch to a specific tv channel
 * Playback commands such as pause, stop, next and previous
 * Open addons on Kodi, e.g., Youtube, Spotify and movie library.
 * Set volume and mute
-* Play the matrix 
-* List trending movies*
-* Show me movies with Sylvester Stallone*
+* Direct play of movie title
+* Display movies by title or actor on the TV
 
-Note: the last three require dialogflow.
 
 ### Software needed:
 * HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
@@ -57,20 +53,50 @@ To be written.
 ##### B - Kodi volume control
 To be written.
 
-#### Step 5 
+#### Step 5 - Setup TV channels
+Channel switching by voice is supported if Trait action.devices.traits.Channel is updated with the tv channels available to you.
+
+{
+  "availableChannels": [
+    {
+      "key": "1438667575",
+      "names": [
+        "animal planet"
+      ],
+      "number": "103"
+	}
+}	  
+If you have a lage number of  channels you may want to import and run the channel-list.json file to have the channels generated from you automatically.
+
+
+#### Step 6 - We are done!
 Say "sync my devices" to your Google Assistant device. 
 
 You should now be able to control your Kodi using your voice. 
 
 
-### Setup instructions -  Dialogflow
-#### Step 1
-#### Step 2
-#### Step 3
-#### Step 4
+### Setup instructions -  Kodi chatbot
+The Kodi chatbots that are capable of natural and rich interactions with users, e.g.,
+* Play a specific movie title
+* Display recomended, popular, trending and latest movies on the TV
+* Search for movies by title
+* Search for movies by actor
 
-## Todo:
-* Document setup
-* Complete definition of Kodi
-* Complete node-red flows
-* Complete dialogflow movie agent that allows requesting video X to be played
+#### Step 1
+<write: install and configure node>
+
+#### Step 2
+<write: import agent>
+
+#### Step 3
+<write: import flow>
+
+#### Step 4
+<write: cigar>
+
+
+# Voice commands
+<write: list voice commands and result>
+
+
+
