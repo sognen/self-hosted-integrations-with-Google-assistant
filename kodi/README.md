@@ -10,7 +10,11 @@ Allows Google Assistant to control Kodi, e.g.,
 * Playback commands such as pause, stop, next and previous
 * Open addons on Kodi, e.g., Youtube, Spotify and movie library.
 * Set volume and mute
-* Play movie the matrix on Kodi
+* Play the matrix 
+* List trending movies*
+* Show me movies with Sylvester Stallone*
+
+Note: the last three require dialogflow.
 
 ### Software needed:
 * HomeAutio.Mqtt.GoogleHome - https://github.com/i8beef/HomeAutio.Mqtt.GoogleHome
