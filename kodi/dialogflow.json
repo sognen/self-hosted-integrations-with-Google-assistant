@@ -13,7 +13,9 @@
 				"147a0f9c.d71e8",
 				"8d27889c.eb1088",
 				"4c9db14.a01555",
-				"6a3f93bf.10af0c"
+				"6a3f93bf.10af0c",
+				"59027c48.fd06a4",
+				"d90f627f.abdd2"
 			]
 		]
 	},
@@ -22,7 +24,7 @@
 		"type": "actions-serialize",
 		"z": "4a5339ba.514388",
 		"name": "",
-		"x": 1541,
+		"x": 1610,
 		"y": 315,
 		"wires": [
 			[
@@ -37,7 +39,7 @@
 		"name": "",
 		"statusCode": "",
 		"headers": {},
-		"x": 1671,
+		"x": 1750,
 		"y": 315,
 		"wires": []
 	},
@@ -54,8 +56,7 @@
 		"y": 255,
 		"wires": [
 			[
-				"354e5ecd.3bc0e2",
-				"eddebeec.d776c"
+				"354e5ecd.3bc0e2"
 			]
 		]
 	},
@@ -77,8 +78,8 @@
 		"type": "intent",
 		"z": "4a5339ba.514388",
 		"intentName": "browse-filter",
-		"x": 544,
-		"y": 255,
+		"x": 550,
+		"y": 220,
 		"wires": [
 			[
 				"dd65bdb.354a94"
@@ -94,7 +95,7 @@
 		"y": 315,
 		"wires": [
 			[
-				"39f8aa42.570df6"
+				"187a4262.823f5e"
 			]
 		]
 	},
@@ -106,7 +107,7 @@
 		"text": "Okay",
 		"speech": "",
 		"suggestions": "",
-		"x": 1371,
+		"x": 1390,
 		"y": 315,
 		"wires": [
 			[
@@ -115,30 +116,12 @@
 		]
 	},
 	{
-		"id": "39f8aa42.570df6",
-		"type": "function",
-		"z": "4a5339ba.514388",
-		"name": "Prepare input",
-		"func": "var genres = msg. payload.queryResult.parameters.genre;\n\nswitch (genres) {\n\tcase \"action\":\n\t\tgenre = 28;\n\t\tbreak;\n\tcase \"adventure\":\n\t\tgenre = 12;\n\t\tbreak;\n\tcase \"animation\":\n\t\tgenre = 16;\t\n\t\tbreak;\n\tcase \"comedy\":\n\t\tgenre = 35;\t\n\t\tbreak;\t\n\tcase \"crime\":\n\t\tgenre = 80;\t\n\t\tbreak;\n\tcase \"documentary\":\n\t\tgenre = 99;\n\t\tbreak;\n\tcase \"drama\":\n\t\tgenre = 18;\n\t\tbreak;\n\tcase \"family\":\n\t\tgenre = 10751;\n\t\tbreak;\n\tcase \"fantasy\":\n\t\tgenre = 14;\n\t\tbreak;\n\tcase \"history\":\n\t\tgenre = 36;\n\t\tbreak;\n\tcase \"horror\":\n\t\tgenre = 27;\n\t\tbreak;\n\tcase \"music\":\n\t\tgenre = 10402;\n\t\tbreak;\n\tcase \"mystery\":\n\t\tgenre = 9648;\n\t\tbreak;\n\tcase \"romance\":\n\t\tgenre = 10749;\n\t\tbreak;\n\tcase \"science fiction\":\n\t\tgenre = 878;\n\t\tbreak;\n\tcase \"tv movie\":\n\t\tgenre = 10770;\n\t\tbreak;\n\tcase \"thriller\":\n\t\tgenre = 53;\n\t\tbreak;\n\tcase \"war\":\n\t\tgenre = 10752;\n\t\tbreak;\n\tcase \"western\":\n\t\tgenre = 37;\n\t\tbreak;\n}\n\nmsg.payload = genre;\nreturn msg;\n",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"x": 774,
-		"y": 315,
-		"wires": [
-			[
-				"187a4262.823f5e"
-			]
-		]
-	},
-	{
 		"id": "8d27889c.eb1088",
 		"type": "intent",
 		"z": "4a5339ba.514388",
 		"intentName": "play",
-		"x": 537,
-		"y": 435,
+		"x": 530,
+		"y": 520,
 		"wires": [
 			[
 				"48c2da1.c747124"
@@ -157,15 +140,6 @@
 				"pt": "flow",
 				"to": "msg.payload.queryResult.parameters.player",
 				"tot": "msg"
-			},
-			{
-				"t": "change",
-				"p": "player",
-				"pt": "flow",
-				"from": "p1",
-				"fromt": "str",
-				"to": "http://192.168.105",
-				"tot": "str"
 			}
 		],
 		"action": "",
@@ -173,8 +147,8 @@
 		"from": "",
 		"to": "",
 		"reg": false,
-		"x": 531,
-		"y": 175,
+		"x": 530,
+		"y": 180,
 		"wires": [
 			[]
 		]
@@ -189,7 +163,7 @@
 				"t": "set",
 				"p": "player",
 				"pt": "flow",
-				"to": "msg.payload.queryResult.parameters.player",
+				"to": "payload.queryResult.parameters.player",
 				"tot": "msg"
 			}
 		],
@@ -198,8 +172,8 @@
 		"from": "",
 		"to": "",
 		"reg": false,
-		"x": 531,
-		"y": 135,
+		"x": 530,
+		"y": 140,
 		"wires": [
 			[]
 		]
@@ -213,11 +187,12 @@
 		"unit_number": "1",
 		"output": "1",
 		"kodicommand": "",
-		"x": 894,
-		"y": 436,
+		"x": 895,
+		"y": 520,
 		"wires": [
 			[
-				"e6656fb1.68d0a"
+				"e6656fb1.68d0a",
+				"3f08923e.becdee"
 			]
 		]
 	},
@@ -230,10 +205,10 @@
 		"fieldType": "msg",
 		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.openmeta/movies/tmdb/search_term/{{{payload.queryResult.parameters.title}}}/1/\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
+		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.seren/?action=moviesSearchResults&actionArgs={{{{payload.queryResult.parameters.title}}}\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
 		"output": "json",
-		"x": 729,
-		"y": 436,
+		"x": 725,
+		"y": 520,
 		"wires": [
 			[
 				"6af13526.1c2e3c"
@@ -251,29 +226,13 @@
 		"syntax": "mustache",
 		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"params\": {\n\t\t\"item\": {\n\t\t\t\"file\": \"{{{payload.files.0.file}}}\"\n\t\t}\n\t}\n}",
 		"output": "json",
-		"x": 1034,
-		"y": 436,
+		"x": 1050,
+		"y": 500,
 		"wires": [
 			[
-				"151342c4.fdd43d"
+				"9308dc88.d92a5"
 			]
 		]
-	},
-	{
-		"id": "eddebeec.d776c",
-		"type": "debug",
-		"z": "4a5339ba.514388",
-		"name": "",
-		"active": true,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "false",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 291,
-		"y": 195,
-		"wires": []
 	},
 	{
 		"id": "67bdded5.ec9cd",
@@ -284,7 +243,7 @@
 		"fieldType": "msg",
 		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.openmeta/movies/tmdb/search_term/{{{payload.queryResult.parameters.title}}}/1/\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=moviesSearchResults&actionArgs={{{{payload.queryResult.parameters.title}}}\"\n\t\t\t]\n\n\t}\n}\n\n\n\n",
 		"output": "json",
 		"x": 1034,
 		"y": 375,
@@ -303,7 +262,7 @@
 		"fieldType": "msg",
 		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.openmeta/movies/genre/{{{payload}}}}/1/\"\n\t\t\t]\n\n\t}\n}",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=movieGenresGet&actionArgs={{{msg.payload.queryResult.parameters.genre}}}\"\n\t\t\t]\n\n\t}\n}\n\n\n",
 		"output": "json",
 		"x": 1034,
 		"y": 315,
@@ -340,16 +299,40 @@
 		"rules": [
 			{
 				"t": "eq",
+				"v": "recommended",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "popular",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
+				"v": "trending",
+				"vt": "str"
+			},
+			{
+				"t": "eq",
 				"v": "latest",
 				"vt": "str"
 			}
 		],
 		"checkall": "true",
 		"repair": false,
-		"outputs": 1,
-		"x": 744,
-		"y": 255,
+		"outputs": 4,
+		"x": 750,
+		"y": 220,
 		"wires": [
+			[
+				"6d2640f7.39e71"
+			],
+			[
+				"407fdd3e.9ad744"
+			],
+			[
+				"48decdb9.335b44"
+			],
 			[
 				"4a286b6c.498bb4"
 			]
@@ -364,14 +347,215 @@
 		"fieldType": "msg",
 		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.openmeta/movies/trakt/latest_releases\"\n\t\t\t]\n\n\t}\n}\n",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=moviesUpdated&page=1\"\n\t\t\t]\n\n\t}\n}\n",
 		"output": "json",
-		"x": 1044,
-		"y": 255,
+		"x": 1046,
+		"y": 260,
 		"wires": [
 			[
 				"151342c4.fdd43d"
 			]
+		]
+	},
+	{
+		"id": "48decdb9.335b44",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Trending",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=moviesTrending&page=1\"\n\t\t\t]\n\n\t}\n}\n",
+		"output": "json",
+		"x": 1037,
+		"y": 225,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "407fdd3e.9ad744",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Popular",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=moviesPopular&page=1\"\n\t\t\t]\n\n\t}\n}\n",
+		"output": "json",
+		"x": 1039,
+		"y": 191,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "59027c48.fd06a4",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "search-actor",
+		"x": 550,
+		"y": 440,
+		"wires": [
+			[
+				"8ed97e85.61c46"
+			]
+		]
+	},
+	{
+		"id": "d90f627f.abdd2",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "status",
+		"x": 530,
+		"y": 580,
+		"wires": [
+			[
+				"431d99c0.a4f298"
+			]
+		]
+	},
+	{
+		"id": "37a11955.fa5fb6",
+		"type": "function",
+		"z": "4a5339ba.514388",
+		"name": "Prepare output",
+		"func": "var title = msg.payload.result.item.title;\nvar item;\nvar payload;\n\nif (title === \"\") {\n    title = \"Nothing is playing right now\";\n} else {\n    title = title + \" is playing right now\";\n}\n\nmsg.simpleresponse = {};\nmsg.simpleresponse.text = title;\nmsg.simpleresponse.title = title;\nreturn msg;\n\n",
+		"outputs": 1,
+		"noerr": 0,
+		"x": 1106,
+		"y": 580,
+		"wires": [
+			[
+				"afa9d5a5.ab1ba8"
+			]
+		]
+	},
+	{
+		"id": "431d99c0.a4f298",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Status",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Player.GetItem\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"album\",\n\t\t\t\"artist\",\n\t\t\t\"season\",\n\t\t\t\"episode\",\n\t\t\t\"duration\",\n\t\t\t\"showtitle\",\n\t\t\t\"tvshowid\",\n\t\t\t\"thumbnail\",\n\t\t\t\"file\",\n\t\t\t\"fanart\",\n\t\t\t\"streamdetails\"\n\t\t],\n\t\t\"playerid\": 1\n\t},\n\t\"id\": \"VideoGetItem\"\n}",
+		"output": "json",
+		"x": 710,
+		"y": 580,
+		"wires": [
+			[
+				"d8ed0f49.a9d84"
+			]
+		]
+	},
+	{
+		"id": "d8ed0f49.a9d84",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 894,
+		"y": 580,
+		"wires": [
+			[
+				"37a11955.fa5fb6"
+			]
+		]
+	},
+	{
+		"id": "afa9d5a5.ab1ba8",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1384,
+		"y": 579,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "8ed97e85.61c46",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=movieByActor&actionArgs={{{payload.queryResult.parameters.actor}}}\"\n\t\t\t]\n\n\t}\n}",
+		"output": "json",
+		"x": 1040,
+		"y": 440,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "6d2640f7.39e71",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Recommended",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=moviesRecommended&page=1\"\n\t\t\t]\n\n\t}\n}\n",
+		"output": "json",
+		"x": 1023,
+		"y": 156,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "3f08923e.becdee",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1390,
+		"y": 520,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "9308dc88.d92a5",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 1215,
+		"y": 500,
+		"wires": [
+			[]
 		]
 	},
 	{
