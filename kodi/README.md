@@ -82,14 +82,16 @@ You should now be able to control your Kodi using your voice.
 
 ### Setup instructions -  Kodi chatbot
 The Kodi chatbots that are capable of natural and rich interactions with users, e.g.,
-* Play a specific movie title
-* Display recomended, popular, trending and latest movies on the TV
+* Play a specific movie title 
+* List recomended, popular, trending and latest movies on the TV
+* Display movie details for a specific movie on TV
 * Search for movies by title
 * Search for movies by actor
+* Ask what is playing on Kodi
 
 #### Step 1
 <write: install and configure node>
-
+<write: install plugin seren>
 #### Step 2
 <write: import agent>
 
