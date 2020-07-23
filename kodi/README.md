@@ -86,6 +86,7 @@ The Kodi chatbots that are capable of natural and rich interactions with users, 
 * List recomended, popular, trending and latest movies on the TV
 * Display movie details for a specific movie on TV
 * Search for movies by title
+* List moves related to a specific title
 * Search for movies by actor
 * Ask what is playing on Kodi
 

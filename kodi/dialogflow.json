@@ -16,7 +16,8 @@
 				"6a3f93bf.10af0c",
 				"59027c48.fd06a4",
 				"d90f627f.abdd2",
-				"cc65ccef.1b0aa"
+				"cc65ccef.1b0aa",
+				"d2aa1fa5.d5c2"
 			]
 		]
 	},
@@ -109,7 +110,7 @@
 		"speech": "",
 		"suggestions": "",
 		"x": 1390,
-		"y": 480,
+		"y": 620,
 		"wires": [
 			[
 				"bb88d972.e0b478"
@@ -120,9 +121,9 @@
 		"id": "8d27889c.eb1088",
 		"type": "intent",
 		"z": "4a5339ba.514388",
-		"intentName": "play",
-		"x": 530,
-		"y": 520,
+		"intentName": "control-play",
+		"x": 550,
+		"y": 660,
 		"wires": [
 			[
 				"48c2da1.c747124"
@@ -189,7 +190,7 @@
 		"output": "1",
 		"kodicommand": "",
 		"x": 895,
-		"y": 520,
+		"y": 660,
 		"wires": [
 			[
 				"e6656fb1.68d0a"
@@ -208,7 +209,7 @@
 		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.seren/?action=moviesSearchResults&actionArgs={{{payload.queryResult.parameters.title}}}\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
 		"output": "json",
 		"x": 725,
-		"y": 520,
+		"y": 660,
 		"wires": [
 			[
 				"6af13526.1c2e3c",
@@ -228,7 +229,7 @@
 		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"params\": {\n\t\t\"item\": {\n\t\t\t\"file\": \"{{{payload.files.0.file}}}\"\n\t\t}\n\t}\n}",
 		"output": "json",
 		"x": 1030,
-		"y": 520,
+		"y": 660,
 		"wires": [
 			[
 				"151342c4.fdd43d"
@@ -405,7 +406,7 @@
 		"z": "4a5339ba.514388",
 		"intentName": "search-actor",
 		"x": 550,
-		"y": 480,
+		"y": 620,
 		"wires": [
 			[
 				"8ed97e85.61c46"
@@ -416,9 +417,9 @@
 		"id": "d90f627f.abdd2",
 		"type": "intent",
 		"z": "4a5339ba.514388",
-		"intentName": "status",
-		"x": 530,
-		"y": 580,
+		"intentName": "control-status",
+		"x": 560,
+		"y": 720,
 		"wires": [
 			[
 				"431d99c0.a4f298"
@@ -434,7 +435,7 @@
 		"outputs": 1,
 		"noerr": 0,
 		"x": 1060,
-		"y": 580,
+		"y": 720,
 		"wires": [
 			[
 				"afa9d5a5.ab1ba8"
@@ -453,7 +454,7 @@
 		"template": "{\n\t\"cmd\": \"Player.GetItem\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"album\",\n\t\t\t\"artist\",\n\t\t\t\"season\",\n\t\t\t\"episode\",\n\t\t\t\"duration\",\n\t\t\t\"showtitle\",\n\t\t\t\"tvshowid\",\n\t\t\t\"thumbnail\",\n\t\t\t\"file\",\n\t\t\t\"fanart\",\n\t\t\t\"streamdetails\"\n\t\t],\n\t\t\"playerid\": 1\n\t},\n\t\"id\": \"VideoGetItem\"\n}",
 		"output": "json",
 		"x": 710,
-		"y": 580,
+		"y": 720,
 		"wires": [
 			[
 				"d8ed0f49.a9d84"
@@ -470,7 +471,7 @@
 		"output": "1",
 		"kodicommand": "",
 		"x": 894,
-		"y": 580,
+		"y": 720,
 		"wires": [
 			[
 				"37a11955.fa5fb6"
@@ -486,7 +487,7 @@
 		"speech": "Okay",
 		"suggestions": "",
 		"x": 1384,
-		"y": 579,
+		"y": 719,
 		"wires": [
 			[
 				"bb88d972.e0b478"
@@ -505,7 +506,7 @@
 		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=movieByActor&actionArgs={{{payload.queryResult.parameters.actor}}}\"\n\t\t\t]\n\n\t}\n}",
 		"output": "json",
 		"x": 1040,
-		"y": 480,
+		"y": 620,
 		"wires": [
 			[
 				"151342c4.fdd43d",
@@ -542,7 +543,7 @@
 		"speech": "Okay",
 		"suggestions": "",
 		"x": 1390,
-		"y": 520,
+		"y": 660,
 		"wires": [
 			[
 				"bb88d972.e0b478"
@@ -626,7 +627,8 @@
 		"wires": [
 			[
 				"5495b75b.2ee628",
-				"d7cd0f50.55925"
+				"d7cd0f50.55925",
+				"fc25edfc.8370f"
 			]
 		]
 	},
@@ -676,6 +678,173 @@
 		"suggestions": "",
 		"x": 1390,
 		"y": 420,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "d2aa1fa5.d5c2",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-related",
+		"x": 560,
+		"y": 514,
+		"wires": [
+			[
+				"81918962.0ea3b8"
+			]
+		]
+	},
+	{
+		"id": "68248905.60eaf8",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Related",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.seren/?action=moviesRelated&actionArgs={{{payload.files.0.uniqueid.trakt}}}&page=1\"\n\t\t\t]\n\n\t}\n}\n",
+		"output": "json",
+		"x": 1040,
+		"y": 514,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "fc25edfc.8370f",
+		"type": "change",
+		"z": "4a5339ba.514388",
+		"name": "Set trakt",
+		"rules": [
+			{
+				"t": "set",
+				"p": "trakt",
+				"pt": "flow",
+				"to": "payload.files.0.uniqueid.trakt",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 880,
+		"y": 460,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "81918962.0ea3b8",
+		"type": "change",
+		"z": "4a5339ba.514388",
+		"name": "Get trakt",
+		"rules": [
+			{
+				"t": "set",
+				"p": "payload.files[0].uniqueid.trakt",
+				"pt": "msg",
+				"to": "trakt",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 760,
+		"y": 516,
+		"wires": [
+			[
+				"68248905.60eaf8",
+				"3b4797f1.0d5128"
+			]
+		]
+	},
+	{
+		"id": "19986246.fa980e",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "search-related",
+		"x": 560,
+		"y": 560,
+		"wires": [
+			[
+				"33e46cd1.ad77f4"
+			]
+		]
+	},
+	{
+		"id": "33e46cd1.ad77f4",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Files.GetDirectory\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t    \"uniqueid\",\n\t\t\t\"title\",\n\t\t\t\"genre\",\n\t\t\t\"year\",\n\t\t\t\"rating\",\n\t\t\t\"runtime\",\n\t\t\t\"plot\",\n\t\t\t\"file\",\n\t\t\t\"art\",\n\t\t\t\"sorttitle\",\n\t\t\t\"originaltitle\"\n\t\t],\n\t\t\"directory\": \"plugin://plugin.video.seren/?action=moviesSearchResults&actionArgs={{{payload.queryResult.parameters.title}}}\",\n\t\t\"media\": \"files\"\n\t},\n\t\"id\": 1\n}\n\n\n",
+		"output": "json",
+		"x": 760,
+		"y": 560,
+		"wires": [
+			[
+				"60a9087f.d29898",
+				"92f02810.272ec8"
+			]
+		]
+	},
+	{
+		"id": "60a9087f.d29898",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 890,
+		"y": 560,
+		"wires": [
+			[
+				"68248905.60eaf8"
+			]
+		]
+	},
+	{
+		"id": "92f02810.272ec8",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1390,
+		"y": 558,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "3b4797f1.0d5128",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1390,
+		"y": 515,
 		"wires": [
 			[
 				"bb88d972.e0b478"
