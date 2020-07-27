@@ -1,412 +1,152 @@
 [
 	{
-		"id": "1b1d11d8.4f449e",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Channel",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "handlebars",
-		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"args\": {\n\t\t\"item\": {\n\t\t\t\"channelid\": {{payload}}\n\t\t}\n\t}\n}",
-		"output": "json",
-		"x": 880,
-		"y": 1174,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "8b800e1a.24c1f",
-		"type": "kodi-in",
-		"z": "d7cff51f.3b5e88",
+		"id": "354e5ecd.3bc0e2",
+		"type": "intent-switch",
+		"z": "4a5339ba.514388",
 		"name": "",
-		"controller": "b774da3d.4d57f8",
-		"x": 210,
-		"y": 380,
-		"wires": [
-			[
-				"5fb97eb9.77484",
-				"40fc7b97.5d1104",
-				"ec03d7b1.5bed18",
-				"15eb837d.56e23d"
-			]
-		]
-	},
-	{
-		"id": "5fb97eb9.77484",
-		"type": "switch",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"property": "payload.notification",
-		"propertyType": "msg",
-		"rules": [
-			{
-				"t": "eq",
-				"v": "Player.OnPlay",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "Player.OnPause",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "Player.OnResume",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "Player.OnStop",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "Application.OnVolumeChanged",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "",
-				"vt": "str"
-			}
-		],
-		"checkall": "true",
-		"repair": false,
-		"outputs": 6,
-		"x": 370,
-		"y": 260,
-		"wires": [
-			[
-				"3442ef63.f2974"
-			],
-			[
-				"3442ef63.f2974"
-			],
-			[
-				"ca872de4.4ae2d"
-			],
-			[
-				"ccf6bc6.bdcbd4"
-			],
-			[
-				"709f9cb7.24c434"
-			],
-			[
-				"6e383f2a.6055a"
-			]
-		]
-	},
-	{
-		"id": "da68be1c.c8e0a",
-		"type": "mqtt out",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/playbackState",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 850,
-		"y": 220,
-		"wires": []
-	},
-	{
-		"id": "3442ef63.f2974",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"PAUSED\"\n\n\n",
-		"output": "json",
-		"x": 580,
-		"y": 180,
-		"wires": [
-			[
-				"da68be1c.c8e0a"
-			]
-		]
-	},
-	{
-		"id": "ccf6bc6.bdcbd4",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"STOPPED\"",
-		"output": "json",
-		"x": 580,
-		"y": 260,
-		"wires": [
-			[
-				"da68be1c.c8e0a"
-			]
-		]
-	},
-	{
-		"id": "ca872de4.4ae2d",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"PLAYING\"",
-		"output": "json",
-		"x": 580,
-		"y": 220,
-		"wires": [
-			[
-				"da68be1c.c8e0a"
-			]
-		]
-	},
-	{
-		"id": "3c8e35f6.4f934a",
-		"type": "mqtt out",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/activityState",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 840,
+		"x": 933,
 		"y": 440,
+		"wires": [
+			[
+				"9f9f2357.4df3f",
+				"326dd6d7.22c7ea",
+				"147a0f9c.d71e8",
+				"8d27889c.eb1088",
+				"4c9db14.a01555",
+				"6a3f93bf.10af0c",
+				"59027c48.fd06a4",
+				"d90f627f.abdd2",
+				"cc65ccef.1b0aa",
+				"d2aa1fa5.d5c2",
+				"19986246.fa980e",
+				"caceea6f.9a2e18",
+				"1398e6c3.bc29b9",
+				"83a7285f.82b168",
+				"49c4060e.ad4ad8"
+			]
+		]
+	},
+	{
+		"id": "bb88d972.e0b478",
+		"type": "actions-serialize",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"x": 2052,
+		"y": 446,
+		"wires": [
+			[
+				"fc78bd93.256b1"
+			]
+		]
+	},
+	{
+		"id": "fc78bd93.256b1",
+		"type": "http response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"statusCode": "",
+		"headers": {},
+		"x": 2190,
+		"y": 446,
 		"wires": []
 	},
 	{
-		"id": "87ce46e4.067da8",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
+		"id": "179c3eee.dfae21",
+		"type": "http in",
+		"z": "4a5339ba.514388",
 		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"ACTIVE\"",
-		"output": "json",
-		"x": 580,
-		"y": 420,
+		"url": "/dialogflow",
+		"method": "post",
+		"upload": false,
+		"swaggerDoc": "",
+		"x": 158,
+		"y": 440,
 		"wires": [
 			[
-				"3c8e35f6.4f934a"
+				"bf1769d6.8f0368"
 			]
 		]
 	},
 	{
-		"id": "ffef7689.5ec0b8",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"INACTIVE\"",
-		"output": "json",
-		"x": 580,
-		"y": 500,
+		"id": "4c9db14.a01555",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "search-title",
+		"x": 1150,
+		"y": 280,
 		"wires": [
 			[
-				"3c8e35f6.4f934a"
+				"67bdded5.ec9cd"
 			]
 		]
 	},
 	{
-		"id": "745c4e19.86286",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"STANDBY\"",
-		"output": "json",
-		"x": 580,
-		"y": 460,
+		"id": "147a0f9c.d71e8",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-filter",
+		"x": 1155,
+		"y": 178,
 		"wires": [
 			[
-				"3c8e35f6.4f934a"
+				"145af559.ec44cb",
+				"2dee0e34.b4d522"
 			]
 		]
 	},
 	{
-		"id": "40fc7b97.5d1104",
-		"type": "switch",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"property": "payload.notification",
-		"propertyType": "msg",
-		"rules": [
-			{
-				"t": "eq",
-				"v": "Player.OnPlay",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "Player.OnResume",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "Player.OnPause",
-				"vt": "str"
-			},
-			{
-				"t": "eq",
-				"v": "Player.OnStop",
-				"vt": "str"
-			}
-		],
-		"checkall": "true",
-		"repair": false,
-		"outputs": 4,
-		"x": 370,
-		"y": 460,
+		"id": "6a3f93bf.10af0c",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-genre",
+		"x": 1160,
+		"y": 220,
 		"wires": [
 			[
-				"87ce46e4.067da8"
-			],
-			[
-				"87ce46e4.067da8"
-			],
-			[
-				"745c4e19.86286"
-			],
-			[
-				"ffef7689.5ec0b8"
+				"187a4262.823f5e"
 			]
 		]
 	},
 	{
-		"id": "ec03d7b1.5bed18",
-		"type": "switch",
-		"z": "d7cff51f.3b5e88",
+		"id": "730fb62f.bfff88",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
 		"name": "",
-		"property": "payload.data.data.player.speed",
-		"propertyType": "msg",
-		"rules": [
-			{
-				"t": "gt",
-				"v": "1",
-				"vt": "num"
-			},
-			{
-				"t": "lt",
-				"v": "0",
-				"vt": "num"
-			}
-		],
-		"checkall": "true",
-		"repair": false,
-		"outputs": 2,
-		"x": 370,
-		"y": 380,
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1870,
+		"y": 720,
 		"wires": [
 			[
-				"dcb2a6e0.be0658"
-			],
-			[
-				"776f1690.459048"
+				"bb88d972.e0b478"
 			]
 		]
 	},
 	{
-		"id": "dcb2a6e0.be0658",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"FAST_FORWARDING\"",
-		"output": "json",
-		"x": 580,
+		"id": "8d27889c.eb1088",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "control-play",
+		"x": 1150,
 		"y": 340,
 		"wires": [
 			[
-				"da68be1c.c8e0a"
+				"48c2da1.c747124"
 			]
 		]
 	},
 	{
-		"id": "776f1690.459048",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "\"REWINDING\"",
-		"output": "json",
-		"x": 580,
-		"y": 380,
-		"wires": [
-			[
-				"da68be1c.c8e0a"
-			]
-		]
-	},
-	{
-		"id": "15eb837d.56e23d",
-		"type": "switch",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"property": "payload.notification",
-		"propertyType": "msg",
-		"rules": [
-			{
-				"t": "eq",
-				"v": "Player.OnPlay",
-				"vt": "str"
-			},
-			{
-				"t": "else"
-			}
-		],
-		"checkall": "true",
-		"repair": false,
-		"outputs": 2,
-		"x": 370,
-		"y": 540,
-		"wires": [
-			[
-				"bf320324.b83ac"
-			],
-			[]
-		]
-	},
-	{
-		"id": "38e220b5.9425e",
+		"id": "9f9f2357.4df3f",
 		"type": "change",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
+		"z": "4a5339ba.514388",
+		"name": "Set device",
 		"rules": [
 			{
 				"t": "set",
-				"p": "returnChannel",
+				"p": "player",
 				"pt": "flow",
-				"to": "currentChannel",
-				"tot": "flow"
-			},
-			{
-				"t": "set",
-				"p": "currentChannel",
-				"pt": "flow",
-				"to": "payload.data.data.item.id",
+				"to": "msg.payload.queryResult.parameters.player",
 				"tot": "msg"
 			}
 		],
@@ -415,260 +155,24 @@
 		"from": "",
 		"to": "",
 		"reg": false,
-		"x": 733,
-		"y": 528,
+		"x": 810,
+		"y": 280,
 		"wires": [
 			[]
 		]
 	},
 	{
-		"id": "bf320324.b83ac",
-		"type": "switch",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"property": "payload.data.data.item.type",
-		"propertyType": "msg",
-		"rules": [
-			{
-				"t": "eq",
-				"v": "channel",
-				"vt": "str"
-			},
-			{
-				"t": "else"
-			}
-		],
-		"checkall": "true",
-		"repair": false,
-		"outputs": 2,
-		"x": 570,
-		"y": 534,
-		"wires": [
-			[
-				"38e220b5.9425e"
-			],
-			[]
-		]
-	},
-	{
-		"id": "45ed0785.34e298",
-		"type": "mqtt out",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/volume",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 820,
-		"y": 300,
-		"wires": []
-	},
-	{
-		"id": "6e383f2a.6055a",
-		"type": "debug",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"active": false,
-		"tosidebar": true,
-		"console": false,
-		"tostatus": false,
-		"complete": "false",
-		"statusVal": "",
-		"statusType": "auto",
-		"x": 830,
-		"y": 380,
-		"wires": []
-	},
-	{
-		"id": "709f9cb7.24c434",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "text",
-		"syntax": "mustache",
-		"template": "{{payload.data.data.volume}}",
-		"output": "json",
-		"x": 580,
-		"y": 300,
-		"wires": [
-			[
-				"45ed0785.34e298"
-			]
-		]
-	},
-	{
-		"id": "26495c72.b797e4",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/app/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 240,
-		"y": 654,
-		"wires": [
-			[
-				"bff06364.d07f2"
-			]
-		]
-	},
-	{
-		"id": "535b680b.c7abe8",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/mediaNext/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 260,
-		"y": 694,
-		"wires": [
-			[
-				"a1068afe.d2a1c8"
-			]
-		]
-	},
-	{
-		"id": "e320292c.812f68",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/mediaPause/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 270,
-		"y": 734,
-		"wires": [
-			[
-				"d0cfbbc4.5ebba8"
-			]
-		]
-	},
-	{
-		"id": "c63970ec.be9a2",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/mediaPrevious/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 280,
-		"y": 774,
-		"wires": [
-			[
-				"4c9e6fc7.83d35"
-			]
-		]
-	},
-	{
-		"id": "2ebd7418.19c15c",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/mediaResume/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 270,
-		"y": 814,
-		"wires": [
-			[
-				"ef08a10.ee79c6"
-			]
-		]
-	},
-	{
-		"id": "e9b62402.7af338",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/mediaStop/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 260,
-		"y": 854,
-		"wires": [
-			[
-				"eb19e77e.ceb358"
-			]
-		]
-	},
-	{
-		"id": "e40e7646.267d58",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Addon",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"{{{payload}}}\"\n\t\t\t]\n\n\t}\n}\n\n\n",
-		"output": "json",
-		"x": 550,
-		"y": 654,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "bff06364.d07f2",
+		"id": "326dd6d7.22c7ea",
 		"type": "change",
-		"z": "d7cff51f.3b5e88",
-		"name": "Set app",
+		"z": "4a5339ba.514388",
+		"name": "Set media",
 		"rules": [
 			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "youtube",
-				"fromt": "str",
-				"to": "plugin://plugin.video.youtube",
-				"tot": "str"
-			},
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "movies",
-				"fromt": "str",
-				"to": "plugin://plugin.video.openmeta/movies",
-				"tot": "str"
-			},
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "tv",
-				"fromt": "str",
-				"to": "plugin://plugin.video.openmeta/tv",
-				"tot": "str"
-			},
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "spotify",
-				"fromt": "str",
-				"to": "plugin://plugin.audio.spotify",
-				"tot": "str"
-			},
-			{
-				"t": "change",
-				"p": "payload",
-				"pt": "msg",
-				"from": "videos",
-				"fromt": "str",
-				"to": "videodb://1/2",
-				"tot": "str"
+				"t": "set",
+				"p": "player",
+				"pt": "flow",
+				"to": "payload.queryResult.parameters.player",
+				"tot": "msg"
 			}
 		],
 		"action": "",
@@ -676,778 +180,413 @@
 		"from": "",
 		"to": "",
 		"reg": false,
-		"x": 420,
-		"y": 654,
+		"x": 840,
+		"y": 200,
 		"wires": [
-			[
-				"e40e7646.267d58"
-			]
+			[]
 		]
 	},
 	{
-		"id": "4f583a29.fcad74",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/channel/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 250,
-		"y": 1174,
-		"wires": [
-			[
-				"1b1d11d8.4f449e"
-			]
-		]
-	},
-	{
-		"id": "eb19e77e.ceb358",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Stop",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n    \"cmd\": \"Player.Stop\",\n    \"args\" :{\n        \"playerid\": 1\n    }\n}",
-		"output": "str",
-		"x": 550,
-		"y": 854,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "d9c18053.b05c",
+		"id": "6af13526.1c2e3c",
 		"type": "kodi-out",
-		"z": "d7cff51f.3b5e88",
+		"z": "4a5339ba.514388",
 		"name": "",
 		"controller": "b774da3d.4d57f8",
 		"unit_number": "1",
 		"output": "1",
 		"kodicommand": "",
-		"x": 1070,
-		"y": 794,
-		"wires": []
-	},
-	{
-		"id": "d0cfbbc4.5ebba8",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Play/Pause",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n    \"cmd\": \"Player.PlayPause\",\n    \"args\" :{\n        \"playerid\": 1\n    }\n}",
-		"output": "str",
-		"x": 570,
-		"y": 734,
+		"x": 1510,
+		"y": 340,
 		"wires": [
 			[
-				"d9c18053.b05c"
+				"e6656fb1.68d0a"
 			]
 		]
 	},
 	{
-		"id": "ef08a10.ee79c6",
+		"id": "48c2da1.c747124",
 		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Play/Pause",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n    \"cmd\": \"Player.PlayPause\",\n    \"args\" :{\n        \"playerid\": 1\n    }\n}",
-		"output": "str",
-		"x": 570,
-		"y": 814,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "a1068afe.d2a1c8",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Next",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"to\": \"next\"\n    }\n}",
-		"output": "str",
-		"x": 550,
-		"y": 694,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "4c9e6fc7.83d35",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Previous",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"to\": \"previous\"\n    }\n}",
-		"output": "str",
-		"x": 560,
-		"y": 774,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "7d660b22.7fcb74",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
+		"z": "4a5339ba.514388",
+		"name": "Search",
 		"field": "payload",
 		"fieldType": "msg",
 		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"Player.Seek\",\n\t\"args\": {\n\t\t\"playerid\": 1,\n\t\t\"value\": {\n\t\t\t\"milliseconds\": {{payload}}\n\t\t}\n\t}\n}",
+		"template": "{\n \"cmd\": \"Files.GetDirectory\",\n \"params\": {\n  \"properties\": [\n    \"uniqueid\",\n   \"title\",\n   \"genre\",\n   \"year\",\n   \"rating\",\n   \"runtime\",\n   \"plot\",\n   \"file\",\n   \"art\",\n   \"sorttitle\",\n   \"originaltitle\"\n  ],\n  \"directory\": \"plugin://plugin.video.themoviedb.helper/?info=search&nextpage=True&query={{{payload.queryResult.parameters.title}}}&type={{{payload.queryResult.parameters.media}}}\",\n  \"media\": \"files\"\n },\n \"id\": 1\n}\n\n\n\n\n",
 		"output": "json",
-		"x": 560,
-		"y": 894,
+		"x": 1360,
+		"y": 340,
 		"wires": [
 			[
-				"d9c18053.b05c"
+				"6af13526.1c2e3c",
+				"3f08923e.becdee"
 			]
 		]
 	},
 	{
-		"id": "1998dc51.a7a7c4",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/absPositionMs/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 280,
-		"y": 894,
-		"wires": [
-			[
-				"7d660b22.7fcb74"
-			]
-		]
-	},
-	{
-		"id": "69a3441b.519edc",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/captioningOn/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 270,
-		"y": 934,
-		"wires": [
-			[
-				"33f3c4ad.b2dd4c"
-			]
-		]
-	},
-	{
-		"id": "c23daf9.24d185",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/captioningOff/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 270,
-		"y": 974,
-		"wires": [
-			[
-				"b42a0718.3fe338"
-			]
-		]
-	},
-	{
-		"id": "33f3c4ad.b2dd4c",
+		"id": "e6656fb1.68d0a",
 		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"subtitle\": \"on\"\n    }\n}\n\n",
-		"output": "str",
-		"x": 560,
-		"y": 934,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "b42a0718.3fe338",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "json",
-		"syntax": "mustache",
-		"template": "{\n    \"cmd\": \"Player.GoTo\",\n    \"args\" :{\n        \"playerid\": 1,\n        \"subtitle\": \"off\"\n    }\n}\n\n",
-		"output": "str",
-		"x": 560,
-		"y": 974,
-		"wires": [
-			[
-				"d9c18053.b05c"
-			]
-		]
-	},
-	{
-		"id": "85b03005.4db0c",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/relativeChannel/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 280,
-		"y": 1254,
-		"wires": [
-			[
-				"6bbc8deb.5e4454"
-			]
-		]
-	},
-	{
-		"id": "490020f1.eb1df",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/returnChannel/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 270,
-		"y": 1214,
-		"wires": [
-			[
-				"d7d9e236.fb4f3"
-			]
-		]
-	},
-	{
-		"id": "d7d9e236.fb4f3",
-		"type": "change",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"rules": [
-			{
-				"t": "set",
-				"p": "payload",
-				"pt": "msg",
-				"to": "returnChannel",
-				"tot": "flow"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 540,
-		"y": 1214,
-		"wires": [
-			[
-				"1b1d11d8.4f449e"
-			]
-		]
-	},
-	{
-		"id": "6bbc8deb.5e4454",
-		"type": "function",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"func": "msg.payload = Number(msg.payload);\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"x": 520,
-		"y": 1254,
-		"wires": [
-			[
-				"6b8989b0.6de728"
-			]
-		]
-	},
-	{
-		"id": "6b8989b0.6de728",
-		"type": "change",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"rules": [
-			{
-				"t": "set",
-				"p": "payload",
-				"pt": "msg",
-				"to": "$flowContext(\"currentChannel\") + msg.payload",
-				"tot": "jsonata"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 700,
-		"y": 1254,
-		"wires": [
-			[
-				"1b1d11d8.4f449e"
-			]
-		]
-	},
-	{
-		"id": "1c21c04.ec6e64",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Volume",
+		"z": "4a5339ba.514388",
+		"name": "Play",
 		"field": "payload",
 		"fieldType": "msg",
 		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"Application.SetVolume\",\n\t\"id\":1,\n\t\"params\":\n\t{\n\t\t\"volume\":{{payload}}\n\t}\n}",
-		"output": "str",
-		"x": 880,
-		"y": 1060,
+		"template": "{\n\t\"cmd\": \"Player.Open\",\n\t\"params\": {\n\t\t\"item\": {\n\t\t\t\"file\": \"plugin://plugin.video.themoviedb.helper/?info=play&type={{{payload.files.0.type}}}&nextpage=True&tmdb_id={{{payload.files.0.uniqueid.tmdb}}}\"\n\t\t}\n\t}\n}\n\n\n",
+		"output": "json",
+		"x": 1670,
+		"y": 340,
 		"wires": [
 			[
-				"d9c18053.b05c",
-				"df075417.170488"
+				"151342c4.fdd43d"
 			]
 		]
 	},
 	{
-		"id": "d2dba171.4d285",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/volume/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 250,
-		"y": 1060,
-		"wires": [
-			[
-				"8e1f54d3.765238"
-			]
-		]
-	},
-	{
-		"id": "2c000bff.07be54",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/mute/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 250,
-		"y": 1020,
-		"wires": [
-			[
-				"ece67024.8e652"
-			]
-		]
-	},
-	{
-		"id": "ece67024.8e652",
+		"id": "67bdded5.ec9cd",
 		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "Mute",
+		"z": "4a5339ba.514388",
+		"name": "Search",
 		"field": "payload",
 		"fieldType": "msg",
-		"format": "json",
+		"format": "handlebars",
 		"syntax": "mustache",
-		"template": "{\n\t\"cmd\": \"Application.SetMute\",\n\t\"params\": {\n\t\t\"mute\": \"toggle\"\n\t},\n\t\"id\": 1\n}",
-		"output": "str",
-		"x": 570,
-		"y": 1020,
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.themoviedb.helper/?info=search&nextpage=True&query={{{payload.queryResult.parameters.title}}}&type={{{payload.queryResult.parameters.media}}}\"\n\t\t\t]\n\n\t}\n}\n\n\n\n",
+		"output": "json",
+		"x": 1620,
+		"y": 280,
 		"wires": [
 			[
-				"d9c18053.b05c"
+				"151342c4.fdd43d",
+				"5dbc2f71.b0c1d"
 			]
 		]
 	},
 	{
-		"id": "389a4bf1.c00674",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/relativeVolume/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 278,
-		"y": 1106,
+		"id": "187a4262.823f5e",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Browse",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"GUI.ActivateWindow\",\n \"args\": {\n   \"window\": \"videos\",\n   \"parameters\": [\n    \"plugin://plugin.video.themoviedb.helper/?info=genre&nextpage=True&tmdb_id={{{payload.queryResult.parameters.genre}}}&type={{{payload.queryResult.parameters.media}}}\"\n   ]\n }\n}",
+		"output": "json",
+		"x": 1641,
+		"y": 220,
 		"wires": [
 			[
-				"83802f9.175aad"
+				"151342c4.fdd43d",
+				"7d585e1a.97369"
 			]
 		]
 	},
 	{
-		"id": "df075417.170488",
-		"type": "change",
-		"z": "d7cff51f.3b5e88",
+		"id": "151342c4.fdd43d",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
 		"name": "",
-		"rules": [
-			{
-				"t": "set",
-				"p": "volume",
-				"pt": "flow",
-				"to": "payload",
-				"tot": "msg"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 1080,
-		"y": 1060,
-		"wires": [
-			[]
-		]
-	},
-	{
-		"id": "8e1f54d3.765238",
-		"type": "change",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"rules": [
-			{
-				"t": "set",
-				"p": "payload",
-				"pt": "msg",
-				"to": "$number(payload)",
-				"tot": "jsonata"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 540,
-		"y": 1060,
-		"wires": [
-			[
-				"1c21c04.ec6e64"
-			]
-		]
-	},
-	{
-		"id": "fa28a556.66f1c8",
-		"type": "change",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"rules": [
-			{
-				"t": "set",
-				"p": "payload",
-				"pt": "msg",
-				"to": "$flowContext(\"volume\") + msg.payload",
-				"tot": "jsonata"
-			}
-		],
-		"action": "",
-		"property": "",
-		"from": "",
-		"to": "",
-		"reg": false,
-		"x": 680,
-		"y": 1106,
-		"wires": [
-			[
-				"1c21c04.ec6e64"
-			]
-		]
-	},
-	{
-		"id": "83802f9.175aad",
-		"type": "function",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"func": "msg.payload = Number(msg.payload);\nreturn msg;",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"x": 518,
-		"y": 1106,
-		"wires": [
-			[
-				"fa28a556.66f1c8"
-			]
-		]
-	},
-	{
-		"id": "3e6f7399.c0eafc",
-		"type": "mqtt out",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/power",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 880,
-		"y": 60,
-		"wires": []
-	},
-	{
-		"id": "8603b161.23b29",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/power/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 290,
-		"y": 60,
-		"wires": [
-			[]
-		]
-	},
-	{
-		"id": "26c7e53e.302fba",
-		"type": "mqtt out",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/input",
-		"qos": "",
-		"retain": "true",
-		"broker": "887f143b.dd5858",
-		"x": 880,
-		"y": 100,
-		"wires": []
-	},
-	{
-		"id": "5af755f5.0bac2c",
-		"type": "mqtt in",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"topic": "livingroom/kodi/input/set",
-		"qos": "2",
-		"datatype": "auto",
-		"broker": "887f143b.dd5858",
-		"x": 280,
-		"y": 100,
-		"wires": [
-			[]
-		]
-	},
-	{
-		"id": "b1bd3f9b.69a57",
-		"type": "comment",
-		"z": "d7cff51f.3b5e88",
-		"name": "Insert here",
-		"info": "",
-		"x": 600,
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 1830,
 		"y": 80,
-		"wires": []
-	},
-	{
-		"id": "3d3bfabe.b08ca6",
-		"type": "inject",
-		"z": "d7cff51f.3b5e88",
-		"name": "Click here",
-		"props": [
-			{
-				"p": "payload"
-			},
-			{
-				"p": "topic",
-				"vt": "str"
-			}
-		],
-		"repeat": "",
-		"crontab": "",
-		"once": false,
-		"onceDelay": 0.1,
-		"topic": "",
-		"payload": "",
-		"payloadType": "date",
-		"x": 180,
-		"y": 1440,
-		"wires": [
-			[
-				"db35c5e6.7d8878"
-			]
-		]
-	},
-	{
-		"id": "db35c5e6.7d8878",
-		"type": "function",
-		"z": "d7cff51f.3b5e88",
-		"name": "Channels",
-		"func": "var device;\nvar payload;\ndevice = \"http://192.168.1.105:8080/jsonrpc?request=\";\npayload = '{\"jsonrpc\": \"2.0\", \"method\": \"PVR.GetChannels\", \"params\": {\"channelgroupid\": \"alltv\", \"properties\" :[\"uniqueid\"]},\"id\": 1}'\nmsg.url = device;\nmsg.headers={};\nmsg.payload = payload;\nmsg.method = \"POST\";\nreturn msg;\n\n\n\n\n\n",
-		"outputs": 1,
-		"noerr": 0,
-		"initialize": "",
-		"finalize": "",
-		"x": 320,
-		"y": 1440,
-		"wires": [
-			[
-				"3876a53b.b8d83a"
-			]
-		]
-	},
-	{
-		"id": "7e3b9530.ed771c",
-		"type": "json",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"property": "payload",
-		"action": "",
-		"pretty": false,
-		"x": 612,
-		"y": 1440,
-		"wires": [
-			[
-				"6620dd19.49d724"
-			]
-		]
-	},
-	{
-		"id": "3876a53b.b8d83a",
-		"type": "http request",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"method": "use",
-		"ret": "txt",
-		"paytoqs": "ignore",
-		"url": "",
-		"tls": "",
-		"persist": false,
-		"proxy": "",
-		"authType": "",
-		"x": 470,
-		"y": 1440,
-		"wires": [
-			[
-				"7e3b9530.ed771c"
-			]
-		]
-	},
-	{
-		"id": "d201f128.c7c22",
-		"type": "template",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"field": "payload",
-		"fieldType": "msg",
-		"format": "handlebars",
-		"syntax": "mustache",
-		"template": "    {\n      \"key\": \"{{payload.uniqueid}}\",\n      \"names\": [\n        \"{{payload.label}}\"\n      ],\n      \"number\": \"{{payload.channelid}}\"\n    }",
-		"output": "json",
-		"x": 870,
-		"y": 1440,
-		"wires": [
-			[
-				"5e2bbdd4.b76c14"
-			]
-		]
-	},
-	{
-		"id": "6620dd19.49d724",
-		"type": "splitter",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"property": "payload.result.channels",
-		"x": 735,
-		"y": 1440,
-		"wires": [
-			[
-				"d201f128.c7c22"
-			]
-		]
-	},
-	{
-		"id": "5e2bbdd4.b76c14",
-		"type": "join",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"mode": "custom",
-		"build": "array",
-		"property": "payload",
-		"propertyType": "msg",
-		"key": "topic",
-		"joiner": "\\n",
-		"joinerType": "str",
-		"accumulate": false,
-		"timeout": "5",
-		"count": "",
-		"reduceRight": false,
-		"reduceExp": "",
-		"reduceInit": "",
-		"reduceInitType": "",
-		"reduceFixup": "",
-		"x": 1002,
-		"y": 1440,
-		"wires": [
-			[
-				"deb9545e.647b28"
-			]
-		]
-	},
-	{
-		"id": "afb30b2f.c13cd8",
-		"type": "file",
-		"z": "d7cff51f.3b5e88",
-		"name": "",
-		"filename": "channels.json",
-		"appendNewline": false,
-		"createDir": false,
-		"overwriteFile": "true",
-		"encoding": "ascii",
-		"x": 1356,
-		"y": 1440,
 		"wires": [
 			[]
 		]
 	},
 	{
-		"id": "deb9545e.647b28",
-		"type": "change",
-		"z": "d7cff51f.3b5e88",
+		"id": "59027c48.fd06a4",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-actor",
+		"x": 1130,
+		"y": 780,
+		"wires": [
+			[
+				"5ac707e5.ef1708"
+			]
+		]
+	},
+	{
+		"id": "d90f627f.abdd2",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "control-status",
+		"x": 1160,
+		"y": 980,
+		"wires": [
+			[
+				"431d99c0.a4f298"
+			]
+		]
+	},
+	{
+		"id": "37a11955.fa5fb6",
+		"type": "function",
+		"z": "4a5339ba.514388",
+		"name": "Prepare output",
+		"func": "var title = msg.payload.result.item.title;\nvar item;\nvar payload;\n\nif (title === \"\") {\n    title = \"Nothing is playing right now\";\n} else {\n    title = title + \" is playing right now\";\n}\n\nmsg.simpleresponse = {};\nmsg.simpleresponse.text = title;\nmsg.simpleresponse.title = title;\nreturn msg;\n\n",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"x": 1652,
+		"y": 980,
+		"wires": [
+			[
+				"afa9d5a5.ab1ba8"
+			]
+		]
+	},
+	{
+		"id": "431d99c0.a4f298",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Status",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Player.GetItem\",\n\t\"params\": {\n\t\t\"properties\": [\n\t\t\t\"title\",\n\t\t\t\"album\",\n\t\t\t\"artist\",\n\t\t\t\"season\",\n\t\t\t\"episode\",\n\t\t\t\"duration\",\n\t\t\t\"showtitle\",\n\t\t\t\"tvshowid\",\n\t\t\t\"thumbnail\",\n\t\t\t\"file\",\n\t\t\t\"fanart\",\n\t\t\t\"streamdetails\"\n\t\t],\n\t\t\"playerid\": 1\n\t},\n\t\"id\": \"VideoGetItem\"\n}",
+		"output": "json",
+		"x": 1354,
+		"y": 980,
+		"wires": [
+			[
+				"d8ed0f49.a9d84"
+			]
+		]
+	},
+	{
+		"id": "d8ed0f49.a9d84",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
 		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 1495,
+		"y": 980,
+		"wires": [
+			[
+				"37a11955.fa5fb6"
+			]
+		]
+	},
+	{
+		"id": "afa9d5a5.ab1ba8",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "Okay",
+		"suggestions": "",
+		"x": 1846,
+		"y": 980,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "3f08923e.becdee",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "Okay",
+		"suggestions": "",
+		"x": 1864,
+		"y": 340,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "5dbc2f71.b0c1d",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "Okay",
+		"suggestions": "",
+		"x": 1864,
+		"y": 280,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "2dee0e34.b4d522",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "Okay",
+		"suggestions": "",
+		"x": 1870,
+		"y": 180,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "7d585e1a.97369",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "Okay",
+		"suggestions": "",
+		"x": 1866,
+		"y": 220,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "cc65ccef.1b0aa",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-title",
+		"x": 1150,
+		"y": 460,
+		"wires": [
+			[
+				"255a47c6.1c1d38"
+			]
+		]
+	},
+	{
+		"id": "255a47c6.1c1d38",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"Files.GetDirectory\",\n \"params\": {\n  \"properties\": [\n    \"uniqueid\",\n   \"title\",\n   \"genre\",\n   \"year\",\n   \"rating\",\n   \"runtime\",\n   \"plot\",\n   \"file\",\n   \"art\",\n   \"sorttitle\",\n   \"originaltitle\"\n  ],\n  \"directory\": \"plugin://plugin.video.themoviedb.helper/?info=search&nextpage=True&query={{{payload.queryResult.parameters.title}}}&type={{{payload.queryResult.parameters.media}}}\",\n  \"media\": \"files\"\n },\n \"id\": 1\n}\n\n\n\n",
+		"output": "json",
+		"x": 1360,
+		"y": 460,
+		"wires": [
+			[
+				"5495b75b.2ee628",
+				"d7cd0f50.55925"
+			]
+		]
+	},
+	{
+		"id": "5495b75b.2ee628",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 1500,
+		"y": 459,
+		"wires": [
+			[
+				"f1380c3d.18dc2",
+				"fc25edfc.8370f"
+			]
+		]
+	},
+	{
+		"id": "f1380c3d.18dc2",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Show",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://script.extendedinfo?info=extendedinfo&&id={{{payload.files.0.uniqueid.tmdb}}}\"\n\t\t\t]\n\n\t}\n}\n",
+		"output": "json",
+		"x": 1652,
+		"y": 460,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "d7cd0f50.55925",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "Okay",
+		"suggestions": "",
+		"x": 1864,
+		"y": 460,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "d2aa1fa5.d5c2",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-related",
+		"x": 1160,
+		"y": 560,
+		"wires": [
+			[
+				"ff7f4b00.e26ed8",
+				"3b4797f1.0d5128"
+			]
+		]
+	},
+	{
+		"id": "68248905.60eaf8",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Related",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"GUI.ActivateWindow\",\n \"args\": {\n   \"window\": \"videos\",\n   \"parameters\": [\n    \"plugin://plugin.video.themoviedb.helper/?info=similar&nextpage=True&tmdb_id={{{payload.files.0.uniqueid.tmdb}}}&type={{{payload.files.0.type}}}\"\n   ]\n }\n}",
+		"output": "json",
+		"x": 1640,
+		"y": 400,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "fc25edfc.8370f",
+		"type": "change",
+		"z": "4a5339ba.514388",
+		"name": "Set tmdb",
 		"rules": [
 			{
-				"t": "move",
-				"p": "payload",
-				"pt": "msg",
-				"to": "payload.availableChannels",
+				"t": "set",
+				"p": "tmdb",
+				"pt": "flow",
+				"to": "payload.files[0].uniqueid.tmdb",
 				"tot": "msg"
 			}
 		],
@@ -1456,11 +595,528 @@
 		"from": "",
 		"to": "",
 		"reg": false,
-		"x": 1164,
-		"y": 1440,
+		"x": 1660,
+		"y": 520,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "19986246.fa980e",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "search-related",
+		"x": 1154,
+		"y": 400,
 		"wires": [
 			[
-				"afb30b2f.c13cd8"
+				"33e46cd1.ad77f4"
+			]
+		]
+	},
+	{
+		"id": "33e46cd1.ad77f4",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"Files.GetDirectory\",\n \"params\": {\n  \"properties\": [\n    \"uniqueid\",\n   \"title\",\n   \"genre\",\n   \"year\",\n   \"rating\",\n   \"runtime\",\n   \"plot\",\n   \"file\",\n   \"art\",\n   \"sorttitle\",\n   \"originaltitle\"\n  ],\n  \"directory\": \"plugin://plugin.video.themoviedb.helper/?info=search&nextpage=True&query={{{payload.queryResult.parameters.title}}}&type={{{payload.queryResult.parameters.media}}}\",\n  \"media\": \"files\"\n },\n \"id\": 1\n}\n\n\n\n\n",
+		"output": "json",
+		"x": 1359,
+		"y": 400,
+		"wires": [
+			[
+				"60a9087f.d29898",
+				"92f02810.272ec8"
+			]
+		]
+	},
+	{
+		"id": "60a9087f.d29898",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 1495,
+		"y": 399,
+		"wires": [
+			[
+				"68248905.60eaf8"
+			]
+		]
+	},
+	{
+		"id": "92f02810.272ec8",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1870,
+		"y": 400,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "3b4797f1.0d5128",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1864,
+		"y": 560,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "145af559.ec44cb",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Filter",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"GUI.ActivateWindow\",\n \"args\": {\n   \"window\": \"videos\",\n   \"parameters\": [\n    \"plugin://plugin.video.themoviedb.helper/?info={{{payload.queryResult.parameters.filter}}}&nextpage=True&type={{{payload.queryResult.parameters.media}}}\"\n   ]\n }\n}\n\n\n\n",
+		"output": "json",
+		"x": 1550,
+		"y": 180,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "bf1769d6.8f0368",
+		"type": "node-red-contrib-httpauth",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"file": "",
+		"cred": "",
+		"authType": "Basic",
+		"realm": "",
+		"username": "nodered",
+		"password": "nodered",
+		"hashed": false,
+		"x": 334,
+		"y": 440,
+		"wires": [
+			[
+				"ade52093.5802a",
+				"abd76e48.11f74"
+			]
+		]
+	},
+	{
+		"id": "ff7f4b00.e26ed8",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Related",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"GUI.ActivateWindow\",\n \"args\": {\n   \"window\": \"videos\",\n   \"parameters\": [\n    \"plugin://plugin.video.themoviedb.helper/?info=similar&nextpage=True&tmdb_id={{{flow.tmdb}}}&type=movie\"\n   ]\n }\n}",
+		"output": "json",
+		"x": 1646,
+		"y": 559,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "ade52093.5802a",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Close",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"Input.ExecuteAction\",\n\t\"id\": 44,\n\t\"args\": {\n\t\t\"action\": \"close\"\n\t}\n}\n",
+		"output": "json",
+		"x": 484,
+		"y": 406,
+		"wires": [
+			[
+				"94239251.93408"
+			]
+		]
+	},
+	{
+		"id": "94239251.93408",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 624,
+		"y": 406,
+		"wires": [
+			[
+				"abd76e48.11f74"
+			]
+		]
+	},
+	{
+		"id": "abd76e48.11f74",
+		"type": "q-gate",
+		"z": "4a5339ba.514388",
+		"name": "q-gate",
+		"controlTopic": "kodi",
+		"defaultState": "queueing",
+		"openCmd": "open",
+		"closeCmd": "close",
+		"toggleCmd": "toggle",
+		"queueCmd": "queue",
+		"defaultCmd": "default",
+		"triggerCmd": "trigger",
+		"flushCmd": "OK",
+		"resetCmd": "reset",
+		"peekCmd": "",
+		"dropCmd": "",
+		"statusCmd": "",
+		"maxQueueLength": "1",
+		"keepNewest": true,
+		"qToggle": false,
+		"persist": false,
+		"x": 780,
+		"y": 440,
+		"wires": [
+			[
+				"354e5ecd.3bc0e2"
+			]
+		]
+	},
+	{
+		"id": "caceea6f.9a2e18",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "discover-titles",
+		"x": 1160,
+		"y": 640,
+		"wires": [
+			[
+				"b250ea1b.e16658"
+			]
+		]
+	},
+	{
+		"id": "df8d5fe.ade62a",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1870,
+		"y": 640,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "e06e7513.cfb468",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"Files.GetDirectory\",\n \"params\": {\n  \"properties\": [\n    \"uniqueid\",\n   \"title\",\n   \"genre\",\n   \"year\",\n   \"rating\",\n   \"runtime\",\n   \"plot\",\n   \"file\",\n   \"art\",\n   \"sorttitle\",\n   \"originaltitle\"\n  ],\n  \"directory\": \"plugin://plugin.video.themoviedb.helper/?info=search&nextpage=True&query={{{payload.queryResult.parameters.actor}}}&type=person\",\n  \"media\": \"files\"\n },\n \"id\": 1\n}\n\n\n\n",
+		"output": "json",
+		"x": 1320,
+		"y": 720,
+		"wires": [
+			[
+				"1a3166e0.c6ccf9",
+				"730fb62f.bfff88"
+			]
+		]
+	},
+	{
+		"id": "1a3166e0.c6ccf9",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 1450,
+		"y": 720,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "90a06798.9ec298",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Show",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.themoviedb.helper/?info=discover&nextpage=True&with_cast={{{payload.files.0.uniqueid.tmdb}}}&with_id=True\"\n\t\t\t]\n\n\t}\n}\n\n\n",
+		"output": "json",
+		"x": 1530,
+		"y": 640,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "6505b002.062c",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Show",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://script.extendedinfo?info=extendedactorinfo&id={{{payload.files.0.uniqueid.tmdb}}}\"\n\t\t\t]\n\n\t}\n}\n",
+		"output": "json",
+		"x": 1610,
+		"y": 780,
+		"wires": [
+			[
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "b250ea1b.e16658",
+		"type": "function",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"func": "\n\nvar array = [];\n\n\narray.toString().replace(/,/g, '/');\n\nreturn msg;",
+		"outputs": 1,
+		"noerr": 0,
+		"initialize": "",
+		"finalize": "",
+		"x": 1380,
+		"y": 640,
+		"wires": [
+			[
+				"90a06798.9ec298"
+			]
+		]
+	},
+	{
+		"id": "5ac707e5.ef1708",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Search",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"Files.GetDirectory\",\n \"params\": {\n  \"properties\": [\n    \"uniqueid\",\n   \"title\",\n   \"genre\",\n   \"year\",\n   \"rating\",\n   \"runtime\",\n   \"plot\",\n   \"file\",\n   \"art\",\n   \"sorttitle\",\n   \"originaltitle\"\n  ],\n  \"directory\": \"plugin://plugin.video.themoviedb.helper/?info=search&nextpage=True&query={{{payload.queryResult.parameters.actor}}}&type=person\",\n  \"media\": \"files\"\n },\n \"id\": 1\n}\n\n\n\n",
+		"output": "json",
+		"x": 1320,
+		"y": 780,
+		"wires": [
+			[
+				"1253f13d.e2aa8f",
+				"d444babd.b41a78"
+			]
+		]
+	},
+	{
+		"id": "1253f13d.e2aa8f",
+		"type": "kodi-out",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"controller": "b774da3d.4d57f8",
+		"unit_number": "1",
+		"output": "1",
+		"kodicommand": "",
+		"x": 1450,
+		"y": 780,
+		"wires": [
+			[
+				"6505b002.062c",
+				"4cf30d1.8b041f4"
+			]
+		]
+	},
+	{
+		"id": "1398e6c3.bc29b9",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-media context: browse-actor",
+		"x": 1230,
+		"y": 880,
+		"wires": [
+			[
+				"993925da.fa72a8"
+			]
+		]
+	},
+	{
+		"id": "993925da.fa72a8",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Show",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n\t\"cmd\": \"GUI.ActivateWindow\",\n\t\"args\": {\n\t\t\t\"window\": \"videos\",\n\t\t\t\"parameters\": [\n\t\t\t\t\"plugin://plugin.video.themoviedb.helper/?info={{{payload.queryResult.parameters.starsin}}}&nextpage=True&tmdb_id={{flow.tmdb}}&type=person\"\n\t\t\t]\n\n\t}\n}",
+		"output": "json",
+		"x": 1670,
+		"y": 880,
+		"wires": [
+			[
+				"151342c4.fdd43d",
+				"398b9108.3b6c4e"
+			]
+		]
+	},
+	{
+		"id": "4cf30d1.8b041f4",
+		"type": "change",
+		"z": "4a5339ba.514388",
+		"name": "Set tmdb",
+		"rules": [
+			{
+				"t": "set",
+				"p": "tmdb",
+				"pt": "flow",
+				"to": "payload.files[0].uniqueid.tmdb",
+				"tot": "msg"
+			}
+		],
+		"action": "",
+		"property": "",
+		"from": "",
+		"to": "",
+		"reg": false,
+		"x": 1620,
+		"y": 820,
+		"wires": [
+			[]
+		]
+	},
+	{
+		"id": "d444babd.b41a78",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1870,
+		"y": 780,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "398b9108.3b6c4e",
+		"type": "simple-response",
+		"z": "4a5339ba.514388",
+		"name": "",
+		"text": "Okay",
+		"speech": "",
+		"suggestions": "",
+		"x": 1850,
+		"y": 880,
+		"wires": [
+			[
+				"bb88d972.e0b478"
+			]
+		]
+	},
+	{
+		"id": "83a7285f.82b168",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-filter-movies",
+		"x": 1180,
+		"y": 120,
+		"wires": [
+			[
+				"6be6e926.e87b18"
+			]
+		]
+	},
+	{
+		"id": "6be6e926.e87b18",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Filter",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"GUI.ActivateWindow\",\n \"args\": {\n   \"window\": \"videos\",\n   \"parameters\": [\n    \"plugin://plugin.video.themoviedb.helper/?info={{{payload.queryResult.parameters.filter}}}&nextpage=True&type=movie\"\n   ]\n }\n}\n\n\n\n",
+		"output": "json",
+		"x": 1530,
+		"y": 120,
+		"wires": [
+			[
+				"2dee0e34.b4d522",
+				"151342c4.fdd43d"
+			]
+		]
+	},
+	{
+		"id": "49c4060e.ad4ad8",
+		"type": "intent",
+		"z": "4a5339ba.514388",
+		"intentName": "browse-filter-tv",
+		"x": 1160,
+		"y": 80,
+		"wires": [
+			[
+				"8bbd359c.4bec18"
+			]
+		]
+	},
+	{
+		"id": "8bbd359c.4bec18",
+		"type": "template",
+		"z": "4a5339ba.514388",
+		"name": "Filter",
+		"field": "payload",
+		"fieldType": "msg",
+		"format": "handlebars",
+		"syntax": "mustache",
+		"template": "{\n \"cmd\": \"GUI.ActivateWindow\",\n \"args\": {\n   \"window\": \"videos\",\n   \"parameters\": [\n    \"plugin://plugin.video.themoviedb.helper/?info={{{payload.queryResult.parameters.filter}}}&nextpage=True&type=tv\"\n   ]\n }\n}",
+		"output": "json",
+		"x": 1530,
+		"y": 80,
+		"wires": [
+			[
+				"2dee0e34.b4d522",
+				"151342c4.fdd43d"
 			]
 		]
 	},
@@ -1471,27 +1127,5 @@
 		"name": "Living room Kodi",
 		"host": "192.168.1.105",
 		"port": "9090"
-	},
-	{
-		"id": "887f143b.dd5858",
-		"type": "mqtt-broker",
-		"z": "",
-		"name": "MQTT",
-		"broker": "192.168.1.104",
-		"port": "1883",
-		"clientid": "",
-		"usetls": false,
-		"compatmode": false,
-		"keepalive": "60",
-		"cleansession": true,
-		"birthTopic": "",
-		"birthQos": "0",
-		"birthPayload": "",
-		"closeTopic": "",
-		"closeQos": "0",
-		"closePayload": "",
-		"willTopic": "",
-		"willQos": "0",
-		"willPayload": ""
 	}
 ]
